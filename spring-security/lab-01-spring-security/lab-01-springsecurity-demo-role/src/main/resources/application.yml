@@ -1,0 +1,5 @@
+spring:
+  security:
+    filter:
+      # 默认是-100，即默认应该放在自定义Filter前面，这里改成100再跟 AFilter 和 ZFilter 对比下位置
+      order: 100
