@@ -1,0 +1,2 @@
+top.kwseeker.lab.security.config.DefaultSecurityAutoConfiguration
+top.kwseeker.lab.security.config.DefaultWebSecurityConfigurerAdapter
