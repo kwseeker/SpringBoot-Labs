@@ -1,13 +1,13 @@
-package top.kwseeker.springboot.lab03.springsecurity;
+package top.kwseeker.springboot.lab03.springsecurity.security;
 
 import javax.servlet.*;
 import java.io.IOException;
 
-public class ZFilter implements Filter {
+public class AFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("ZFilter doFilter ...");
+        System.out.println("AFilter doFilter ...");
         filterChain.doFilter(servletRequest, servletResponse);
     }
 }

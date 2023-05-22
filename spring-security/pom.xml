@@ -17,6 +17,7 @@
     <module>lab-02-spring-security-oauth</module>
     <module>lab-spring-boot-starter-security</module>
     <module>lab-03-springsecurity-demo-starter</module>
+    <module>lab-04-springsecurity-demo-newversion</module>
   </modules>
 
 </project>

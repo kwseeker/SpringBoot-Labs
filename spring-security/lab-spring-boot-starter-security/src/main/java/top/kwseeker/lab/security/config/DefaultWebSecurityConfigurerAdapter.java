@@ -4,7 +4,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -36,7 +36,8 @@ import java.util.Set;
  * @author 芋道源码
  */
 @Slf4j
-@AutoConfiguration
+// 不加这行前，发现默认会先创建默认的过滤器链，然后才创建自己定制的过滤器链，过滤时也会走默认的过滤器链， TODO 梳理下 Security Bean 加载流程，看下什么原因
+@AutoConfiguration(before = SecurityAutoConfiguration.class)
 @EnableConfigurationProperties(SecurityUriProperties.class)
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class DefaultWebSecurityConfigurerAdapter {

@@ -1,4 +1,4 @@
-package top.kwseeker.springboot.lab03.springsecurity;
+package top.kwseeker.springboot.lab03.springsecurity.demo.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;

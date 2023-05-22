@@ -1,4 +1,4 @@
-package top.kwseeker.springboot.lab03.springsecurity;
+package top.kwseeker.springboot.lab03.springsecurity.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

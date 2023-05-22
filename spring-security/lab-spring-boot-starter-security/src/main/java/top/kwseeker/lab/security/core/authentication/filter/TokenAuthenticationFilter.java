@@ -2,8 +2,7 @@ package top.kwseeker.lab.security.core.authentication.filter;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.Ordered;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.filter.OncePerRequestFilter;
 import top.kwseeker.lab.security.config.SecurityProperties;
@@ -25,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 //@RequiredArgsConstructor //生成包含所有 final 字段的构造器
-public class TokenAuthenticationFilter extends OncePerRequestFilter {
+public class TokenAuthenticationFilter extends OncePerRequestFilter implements Ordered {
 
     private final SecurityProperties securityProperties;
 
@@ -122,5 +121,10 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     private LoginUser buildLoginUserByHeader(HttpServletRequest request) {
         String loginUserStr = request.getHeader(SecurityFrameworkUtils.LOGIN_USER_HEADER);
         return StrUtil.isNotEmpty(loginUserStr) ? JsonUtils.parseObject(loginUserStr, LoginUser.class) : null;
+    }
+
+    @Override
+    public int getOrder() {
+        return org.springframework.boot.autoconfigure.security.SecurityProperties.BASIC_AUTH_ORDER -1;
     }
 }
