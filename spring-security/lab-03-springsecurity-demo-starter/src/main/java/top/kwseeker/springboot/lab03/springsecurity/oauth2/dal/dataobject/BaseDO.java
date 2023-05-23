@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
+import lombok.experimental.Accessors;
 import org.apache.ibatis.type.JdbcType;
 
 import java.io.Serializable;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
  * @author 芋道源码
  */
 @Data
+@Accessors(chain = true)
 public abstract class BaseDO implements Serializable {
 
     /**

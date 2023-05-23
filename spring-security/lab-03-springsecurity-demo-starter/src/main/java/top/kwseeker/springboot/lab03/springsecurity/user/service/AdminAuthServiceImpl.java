@@ -5,15 +5,20 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import top.kwseeker.lab.security.core.authentication.user.UserTypeEnum;
+import top.kwseeker.lab.security.core.exception.ServiceExceptionUtil;
+import top.kwseeker.springboot.lab03.springsecurity.common.enums.CommonStatusEnum;
 import top.kwseeker.springboot.lab03.springsecurity.oauth2.dal.dataobject.OAuth2AccessTokenDO;
 import top.kwseeker.springboot.lab03.springsecurity.oauth2.enums.OAuth2ClientConstants;
 import top.kwseeker.springboot.lab03.springsecurity.oauth2.service.OAuth2TokenService;
 import top.kwseeker.springboot.lab03.springsecurity.user.controller.vo.AuthLoginReqVO;
 import top.kwseeker.springboot.lab03.springsecurity.user.controller.vo.AuthLoginRespVO;
+import top.kwseeker.springboot.lab03.springsecurity.user.covert.AuthConvert;
 import top.kwseeker.springboot.lab03.springsecurity.user.dal.dataobject.AdminUserDO;
 
 import javax.annotation.Resource;
 import javax.validation.Validator;
+
+import static top.kwseeker.springboot.lab03.springsecurity.common.enums.ErrorCodeConstants.*;
 
 /**
  * Auth Service 实现类
@@ -28,10 +33,10 @@ public class AdminAuthServiceImpl implements AdminAuthService {
     private AdminUserService userService;
     @Resource
     private OAuth2TokenService oauth2TokenService;
-    @Resource
-    private SocialUserService socialUserService;
-    @Resource
-    private MemberService memberService;
+    //@Resource
+    //private SocialUserService socialUserService;
+    //@Resource
+    //private MemberService memberService;
     @Resource
     private Validator validator;
 
@@ -46,16 +51,15 @@ public class AdminAuthServiceImpl implements AdminAuthService {
         // 校验账号是否存在
         AdminUserDO user = userService.getUserByUsername(username);
         if (user == null) {
-            throw exception(AUTH_LOGIN_BAD_CREDENTIALS);
+            throw ServiceExceptionUtil.exception(AUTH_LOGIN_BAD_CREDENTIALS);
         }
         if (!userService.isPasswordMatch(password, user.getPassword())) {
-            createLoginLog(user.getId(), username, logTypeEnum, LoginResultEnum.BAD_CREDENTIALS);
-            throw exception(AUTH_LOGIN_BAD_CREDENTIALS);
+            throw ServiceExceptionUtil.exception(AUTH_LOGIN_BAD_CREDENTIALS);
         }
         // 校验是否禁用
         if (ObjectUtil.notEqual(user.getStatus(), CommonStatusEnum.ENABLE.getStatus())) {
-            createLoginLog(user.getId(), username, logTypeEnum, LoginResultEnum.USER_DISABLED);
-            throw exception(AUTH_LOGIN_USER_DISABLED);
+            //createLoginLog(user.getId(), username, logTypeEnum, LoginResultEnum.USER_DISABLED);
+            throw ServiceExceptionUtil.exception(AUTH_LOGIN_USER_DISABLED);
         }
         return user;
     }
@@ -77,24 +81,24 @@ public class AdminAuthServiceImpl implements AdminAuthService {
         return createTokenAfterLoginSuccess(user.getId(), reqVO.getUsername());
     }
 
-    @Override
-    public AuthLoginRespVO socialLogin(AuthSocialLoginReqVO reqVO) {
-        // 使用 code 授权码，进行登录。然后，获得到绑定的用户编号
-        Long userId = socialUserService.getBindUserId(UserTypeEnum.ADMIN.getValue(), reqVO.getType(),
-                reqVO.getCode(), reqVO.getState());
-        if (userId == null) {
-            throw exception(AUTH_THIRD_LOGIN_NOT_BIND);
-        }
-
-        // 获得用户
-        AdminUserDO user = userService.getUser(userId);
-        if (user == null) {
-            throw exception(USER_NOT_EXISTS);
-        }
-
-        // 创建 Token 令牌，记录登录日志
-        return createTokenAfterLoginSuccess(user.getId(), user.getUsername());
-    }
+    //@Override
+    //public AuthLoginRespVO socialLogin(AuthSocialLoginReqVO reqVO) {
+    //    // 使用 code 授权码，进行登录。然后，获得到绑定的用户编号
+    //    Long userId = socialUserService.getBindUserId(UserTypeEnum.ADMIN.getValue(), reqVO.getType(),
+    //            reqVO.getCode(), reqVO.getState());
+    //    if (userId == null) {
+    //        throw ServiceExceptionUtil.exception(AUTH_THIRD_LOGIN_NOT_BIND);
+    //    }
+    //
+    //    // 获得用户
+    //    AdminUserDO user = userService.getUser(userId);
+    //    if (user == null) {
+    //        throw ServiceExceptionUtil.exception(USER_NOT_EXISTS);
+    //    }
+    //
+    //    // 创建 Token 令牌，记录登录日志
+    //    return createTokenAfterLoginSuccess(user.getId(), user.getUsername());
+    //}
 
     private AuthLoginRespVO createTokenAfterLoginSuccess(Long userId, String username) {
         // 插入登陆日志
@@ -113,14 +117,15 @@ public class AdminAuthServiceImpl implements AdminAuthService {
     }
 
     @Override
-    public void logout(String token, Integer logType) {
+    //public void logout(String token, Integer logType) {
+    public void logout(String token) {
         // 删除访问令牌
         OAuth2AccessTokenDO accessTokenDO = oauth2TokenService.removeAccessToken(token);
         if (accessTokenDO == null) {
             return;
         }
         // 删除成功，则记录登出日志
-        createLogoutLog(accessTokenDO.getUserId(), accessTokenDO.getUserType(), logType);
+        //createLogoutLog(accessTokenDO.getUserId(), accessTokenDO.getUserType(), logType);
     }
 
     private String getUsername(Long userId) {

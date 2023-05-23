@@ -1,6 +1,7 @@
 package top.kwseeker.springboot.lab03.springsecurity.oauth2.service;
 
-import cn.hutool.db.PageResult;
+import top.kwseeker.springboot.lab03.springsecurity.common.page.PageResult;
+import top.kwseeker.springboot.lab03.springsecurity.oauth2.controller.vo.OAuth2AccessTokenPageReqVO;
 import top.kwseeker.springboot.lab03.springsecurity.oauth2.dal.dataobject.OAuth2AccessTokenDO;
 
 import java.util.List;

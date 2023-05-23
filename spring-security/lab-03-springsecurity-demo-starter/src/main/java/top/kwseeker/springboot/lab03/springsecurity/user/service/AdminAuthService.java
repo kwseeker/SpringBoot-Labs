@@ -38,7 +38,7 @@ public interface AdminAuthService {
      * @param token token
      * @param logType 登出类型
      */
-    void logout(String token, Integer logType);
+    void logout(String token);
 
     ///**
     // * 社交快捷登录，使用 code 授权码

@@ -37,7 +37,7 @@ import java.util.Set;
  */
 @Slf4j
 // 不加这行前，发现默认会先创建默认的过滤器链，然后才创建自己定制的过滤器链，过滤时也会走默认的过滤器链， TODO 梳理下 Security Bean 加载流程，看下什么原因
-@AutoConfiguration(before = SecurityAutoConfiguration.class)
+//@AutoConfiguration(before = SecurityAutoConfiguration.class)
 @EnableConfigurationProperties(SecurityUriProperties.class)
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class DefaultWebSecurityConfigurerAdapter {
@@ -46,42 +46,6 @@ public class DefaultWebSecurityConfigurerAdapter {
     private SecurityUriProperties webProperties;
     @Resource
     private SecurityProperties securityProperties;
-
-    /**
-     * 认证失败处理类 Bean
-     */
-    @Resource
-    private AuthenticationEntryPoint authenticationEntryPoint;
-    /**
-     * 权限不够处理器 Bean
-     */
-    @Resource
-    private AccessDeniedHandler accessDeniedHandler;
-    /**
-     * Token 认证过滤器 Bean
-     */
-    @Resource
-    private TokenAuthenticationFilter authenticationTokenFilter;
-
-    /**
-     * 自定义的权限映射 Bean 们
-     *
-     * @see #configure(HttpSecurity)
-     */
-    @Resource
-    private List<AuthorizeRequestsCustomizer> authorizeRequestsCustomizers;
-
-    @Resource
-    private ApplicationContext applicationContext;
-
-    /**
-     * 由于 Spring Security 创建 AuthenticationManager 对象时，没声明 @Bean 注解，导致无法被注入
-     * 通过覆写父类的该方法，添加 @Bean 注解，解决该问题
-     */
-    @Bean
-    public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
 
     /**
      * 配置 URL 的安全配置
@@ -101,9 +65,10 @@ public class DefaultWebSecurityConfigurerAdapter {
      * authenticated       |   用户登录后可访问
      */
     @Bean
-    @Order(org.springframework.boot.autoconfigure.security.SecurityProperties.BASIC_AUTH_ORDER -1)
-    protected SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
-        log.info("Configuring security filter");
+    //@Order(org.springframework.boot.autoconfigure.security.SecurityProperties.BASIC_AUTH_ORDER -1)
+    //protected SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+        //log.info("Configuring security filter 2");
         // 登出
         httpSecurity
                 // 开启跨域
@@ -139,7 +104,7 @@ public class DefaultWebSecurityConfigurerAdapter {
 
                 // ②：每个项目的自定义规则
                 .and().authorizeRequests(registry -> // 下面，循环设置自定义规则
-                        authorizeRequestsCustomizers.forEach(customizer -> customizer.customize(registry)))
+                authorizeRequestsCustomizers.forEach(customizer -> customizer.customize(registry)))
                 // ③：兜底规则，必须认证
                 .authorizeRequests()
                 .anyRequest().authenticated()
@@ -148,6 +113,42 @@ public class DefaultWebSecurityConfigurerAdapter {
         // 添加 JWT Filter
         httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
+    }
+
+    /**
+     * 认证失败处理类 Bean
+     */
+    @Resource
+    private AuthenticationEntryPoint authenticationEntryPoint;
+    /**
+     * 权限不够处理器 Bean
+     */
+    @Resource
+    private AccessDeniedHandler accessDeniedHandler;
+    /**
+     * Token 认证过滤器 Bean
+     */
+    @Resource
+    private TokenAuthenticationFilter authenticationTokenFilter;
+
+    /**
+     * 自定义的权限映射 Bean 们
+     *
+     * @see #configure(HttpSecurity)
+     */
+    @Resource
+    private List<AuthorizeRequestsCustomizer> authorizeRequestsCustomizers;
+
+    @Resource
+    private ApplicationContext applicationContext;
+
+    /**
+     * 由于 Spring Security 创建 AuthenticationManager 对象时，没声明 @Bean 注解，导致无法被注入
+     * 通过覆写父类的该方法，添加 @Bean 注解，解决该问题
+     */
+    @Bean
+    public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
     }
 
     private String buildAppApi(String url) {

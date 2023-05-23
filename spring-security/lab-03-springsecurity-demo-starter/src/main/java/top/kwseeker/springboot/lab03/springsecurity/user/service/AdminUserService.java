@@ -21,7 +21,7 @@ public interface AdminUserService {
      * @param reqVO 用户信息
      * @return 用户编号
      */
-    Long createUser(@Valid UserCreateReqVO reqVO);
+    //Long createUser(@Valid UserCreateReqVO reqVO);
 
     ///**
     // * 修改用户
@@ -108,15 +108,15 @@ public interface AdminUserService {
     // * @return 分页列表
     // */
     //PageResult<AdminUserDO> getUserPage(UserPageReqVO reqVO);
-    //
-    ///**
-    // * 通过用户 ID 查询用户
-    // *
-    // * @param id 用户ID
-    // * @return 用户对象信息
-    // */
-    //AdminUserDO getUser(Long id);
-    //
+
+    /**
+     * 通过用户 ID 查询用户
+     *
+     * @param id 用户ID
+     * @return 用户对象信息
+     */
+    AdminUserDO getUser(Long id);
+
     ///**
     // * 获得指定部门的用户数组
     // *

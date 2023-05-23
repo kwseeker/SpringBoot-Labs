@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import top.kwseeker.springboot.lab03.springsecurity.user.controller.vo.UserCreateReqVO;
 import top.kwseeker.springboot.lab03.springsecurity.user.dal.dataobject.AdminUserDO;
+import top.kwseeker.springboot.lab03.springsecurity.user.dal.mysql.AdminUserMapper;
 
 import javax.annotation.Resource;
 import java.io.InputStream;
@@ -34,49 +35,49 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Resource
     private AdminUserMapper userMapper;
-    @Resource
-    private DeptService deptService;
-    @Resource
-    private PostService postService;
-    @Resource
-    private PermissionService permissionService;
+    //@Resource
+    //private DeptService deptService;
+    //@Resource
+    //private PostService postService;
+    //@Resource
+    //private PermissionService permissionService;
     @Resource
     private PasswordEncoder passwordEncoder;
-    @Resource
-    @Lazy // 延迟，避免循环依赖报错
-    private TenantService tenantService;
+    //@Resource
+    //@Lazy // 延迟，避免循环依赖报错
+    //private TenantService tenantService;
+    //
+    //@Resource
+    //private UserPostMapper userPostMapper;
 
-    @Resource
-    private UserPostMapper userPostMapper;
+    //@Resource
+    //private FileApi fileApi;
 
-    @Resource
-    private FileApi fileApi;
-
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public Long createUser(UserCreateReqVO reqVO) {
-        // 校验账户配合
-        tenantService.handleTenantInfo(tenant -> {
-            long count = userMapper.selectCount();
-            if (count >= tenant.getAccountCount()) {
-                throw exception(USER_COUNT_MAX, tenant.getAccountCount());
-            }
-        });
-        // 校验正确性
-        validateUserForCreateOrUpdate(null, reqVO.getUsername(), reqVO.getMobile(), reqVO.getEmail(),
-                reqVO.getDeptId(), reqVO.getPostIds());
-        // 插入用户
-        AdminUserDO user = UserConvert.INSTANCE.convert(reqVO);
-        user.setStatus(CommonStatusEnum.ENABLE.getStatus()); // 默认开启
-        user.setPassword(encodePassword(reqVO.getPassword())); // 加密密码
-        userMapper.insert(user);
-        // 插入关联岗位
-        if (CollectionUtil.isNotEmpty(user.getPostIds())) {
-            userPostMapper.insertBatch(convertList(user.getPostIds(),
-                    postId -> new UserPostDO().setUserId(user.getId()).setPostId(postId)));
-        }
-        return user.getId();
-    }
+    //@Override
+    //@Transactional(rollbackFor = Exception.class)
+    //public Long createUser(UserCreateReqVO reqVO) {
+    //    // 校验账户配合
+    //    tenantService.handleTenantInfo(tenant -> {
+    //        long count = userMapper.selectCount();
+    //        if (count >= tenant.getAccountCount()) {
+    //            throw exception(USER_COUNT_MAX, tenant.getAccountCount());
+    //        }
+    //    });
+    //    // 校验正确性
+    //    validateUserForCreateOrUpdate(null, reqVO.getUsername(), reqVO.getMobile(), reqVO.getEmail(),
+    //            reqVO.getDeptId(), reqVO.getPostIds());
+    //    // 插入用户
+    //    AdminUserDO user = UserConvert.INSTANCE.convert(reqVO);
+    //    user.setStatus(CommonStatusEnum.ENABLE.getStatus()); // 默认开启
+    //    user.setPassword(encodePassword(reqVO.getPassword())); // 加密密码
+    //    userMapper.insert(user);
+    //    // 插入关联岗位
+    //    if (CollectionUtil.isNotEmpty(user.getPostIds())) {
+    //        userPostMapper.insertBatch(convertList(user.getPostIds(),
+    //                postId -> new UserPostDO().setUserId(user.getId()).setPostId(postId)));
+    //    }
+    //    return user.getId();
+    //}
     //
     //@Override
     //@Transactional(rollbackFor = Exception.class)
@@ -195,12 +196,12 @@ public class AdminUserServiceImpl implements AdminUserService {
     //public PageResult<AdminUserDO> getUserPage(UserPageReqVO reqVO) {
     //    return userMapper.selectPage(reqVO, getDeptCondition(reqVO.getDeptId()));
     //}
-    //
-    //@Override
-    //public AdminUserDO getUser(Long id) {
-    //    return userMapper.selectById(id);
-    //}
-    //
+
+    @Override
+    public AdminUserDO getUser(Long id) {
+        return userMapper.selectById(id);
+    }
+
     //@Override
     //public List<AdminUserDO> getUserListByDeptIds(Collection<Long> deptIds) {
     //    if (CollUtil.isEmpty(deptIds)) {

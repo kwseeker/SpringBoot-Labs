@@ -1,6 +1,6 @@
 package top.kwseeker.springboot.lab03.springsecurity.user.controller;
 
-import cn.hutool.core.util.StrUtil;
+import cn.hutool.core.text.CharSequenceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +13,7 @@ import top.kwseeker.lab.security.core.util.SecurityFrameworkUtils;
 import top.kwseeker.springboot.lab03.springsecurity.user.controller.vo.AuthLoginReqVO;
 import top.kwseeker.springboot.lab03.springsecurity.user.controller.vo.AuthLoginRespVO;
 import top.kwseeker.springboot.lab03.springsecurity.user.service.AdminAuthService;
+import top.kwseeker.springboot.lab03.springsecurity.user.service.AdminUserService;
 
 import javax.annotation.Resource;
 import javax.annotation.security.PermitAll;
@@ -43,8 +44,8 @@ public class AuthController {
     @PermitAll
     public CommonResult<Boolean> logout(HttpServletRequest request) {
         String token = SecurityFrameworkUtils.obtainAuthorization(request, securityProperties.getTokenHeader());
-        if (StrUtil.isNotBlank(token)) {
-            authService.logout(token, LoginLogTypeEnum.LOGOUT_SELF.getType());
+        if (CharSequenceUtil.isNotBlank(token)) {
+            authService.logout(token);
         }
         return CommonResult.success(true);
     }

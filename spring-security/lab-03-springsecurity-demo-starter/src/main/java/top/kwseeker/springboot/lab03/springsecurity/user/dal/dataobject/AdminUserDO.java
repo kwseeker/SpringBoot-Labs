@@ -1,15 +1,13 @@
 package top.kwseeker.springboot.lab03.springsecurity.user.dal.dataobject;
 
-import cn.iocoder.yudao.framework.common.enums.CommonStatusEnum;
-import cn.iocoder.yudao.framework.mybatis.core.type.JsonLongSetTypeHandler;
-import cn.iocoder.yudao.framework.tenant.core.db.TenantBaseDO;
-import cn.iocoder.yudao.module.system.enums.common.SexEnum;
 import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import top.kwseeker.springboot.lab03.springsecurity.common.mybatis.JsonLongSetTypeHandler;
+import top.kwseeker.springboot.lab03.springsecurity.oauth2.dal.dataobject.BaseDO;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -26,7 +24,7 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdminUserDO {
+public class AdminUserDO extends BaseDO {
 
     /**
      * 用户ID
@@ -70,8 +68,6 @@ public class AdminUserDO {
     private String mobile;
     /**
      * 用户性别
-     *
-     * 枚举类 {@link SexEnum}
      */
     private Integer sex;
     /**
@@ -80,8 +76,6 @@ public class AdminUserDO {
     private String avatar;
     /**
      * 帐号状态
-     *
-     * 枚举 {@link CommonStatusEnum}
      */
     private Integer status;
     /**
