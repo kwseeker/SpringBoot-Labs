@@ -4,14 +4,19 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.elasticsearch.annotations.Setting;
 import top.kwseeker.springboot.springdataelasticsearch.constant.FieldAnalyzer;
 
-@Document(indexName = "product", // 索引名
-        type = "product", // 类型。未来的版本即将废弃
-        shards = 1, // 默认索引分区数
-        replicas = 0, // 每个分区的备份数
-        refreshInterval = "-1" // 刷新间隔
-)
+//旧版本写法
+//@Document(indexName = "product", // 索引名
+//        type = "product", // 类型。未来的版本即将废弃
+//        shards = 1, // 默认索引分区数
+//        replicas = 0, // 每个分区的备份数
+//        refreshInterval = "-1" // 刷新间隔
+//)
+//spring-data-elaticsearch 5.0.4写法
+@Document(indexName = "product", createIndex = true)
+@Setting(shards = 1, replicas = 0, refreshInterval = "-1")
 public class ESProductDO {
 
     /**
