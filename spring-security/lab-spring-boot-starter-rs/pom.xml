@@ -10,10 +10,9 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>top.kwseeker.lab.security</groupId>
-  <artifactId>lab-spring-boot-starter-security</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <groupId>top.kwseeker.lab.security.repeat</groupId>
+  <artifactId>lab-spring-boot-starter-rs</artifactId>
+  <version>1.0.0</version>
 
   <dependencies>
     <!-- 实现对 Spring MVC 的自动化配置 -->
@@ -71,9 +70,5 @@
       <artifactId>hibernate-validator</artifactId>
       <version>6.2.5.Final</version>
     </dependency>
-    <!--<dependency>-->
-    <!--  <groupId>org.springframework.boot</groupId>-->
-    <!--  <artifactId>spring-boot-actuator-autoconfigure</artifactId>-->
-    <!--</dependency>-->
   </dependencies>
 </project>

@@ -1,33 +1,27 @@
-package top.kwseeker.lab.security.config;
+package top.kwseeker.lab.security.repeat.config;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import lombok.extern.slf4j.Slf4j;
-//import org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-import top.kwseeker.lab.security.core.authentication.filter.TokenAuthenticationFilter;
 
 import javax.annotation.Resource;
 import javax.annotation.security.PermitAll;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -38,17 +32,15 @@ import java.util.Set;
  */
 @Slf4j
 // 不加这行前，发现默认会先创建默认的过滤器链，然后才创建自己定制的过滤器链，过滤时也会走默认的过滤器链， TODO 梳理下 Security Bean 加载流程，看下什么原因
-@AutoConfiguration(before = {SecurityAutoConfiguration.class})
-//如果引入了spring-boot-actuator-autoconfigure，还会优先创建端点接口的安全过滤器链
-//@AutoConfiguration(before = {SecurityAutoConfiguration.class, ManagementWebSecurityAutoConfiguration.class})
+@AutoConfiguration(before = SecurityAutoConfiguration.class)
 @EnableConfigurationProperties(SecurityUriProperties.class)
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class DefaultWebSecurityConfigurerAdapter {
 
-    @Resource
-    private SecurityUriProperties webProperties;
-    @Resource
-    private SecurityProperties securityProperties;
+    //@Resource
+    //private SecurityUriProperties webProperties;
+    //@Resource
+    //private SecurityProperties securityProperties;
 
     /**
      * 配置 URL 的安全配置
@@ -68,7 +60,6 @@ public class DefaultWebSecurityConfigurerAdapter {
      * authenticated       |   用户登录后可访问
      */
     @Bean
-    //这个 @Order 无效，但是 starter 中这种写法很常见，无效应该是因为其他排序优先级可能比这个更高
     //@Order(org.springframework.boot.autoconfigure.security.SecurityProperties.BASIC_AUTH_ORDER -1)
     //protected SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
@@ -84,8 +75,9 @@ public class DefaultWebSecurityConfigurerAdapter {
                 // TODO
                 .headers().frameOptions().disable().and()
                 // 一堆自定义的 Spring Security 处理器
-                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
-                .accessDeniedHandler(accessDeniedHandler);
+                //.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
+                //.accessDeniedHandler(accessDeniedHandler)
+                ;
         // 登录、登录暂时不使用 Spring Security 的拓展点，主要考虑一方面拓展多用户、多种登录方式相对复杂，一方面用户的学习成本较高
 
         // 获得 @PermitAll 带来的 URL 列表，免登录
@@ -102,13 +94,13 @@ public class DefaultWebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT, permitAllUrls.get(HttpMethod.PUT).toArray(new String[0])).permitAll()
                 .antMatchers(HttpMethod.DELETE, permitAllUrls.get(HttpMethod.DELETE).toArray(new String[0])).permitAll()
                 // 基于 yudao.security.permit-all-urls 无需认证
-                .antMatchers(securityProperties.getPermitAllUrls().toArray(new String[0])).permitAll()
+                //.antMatchers(securityProperties.getPermitAllUrls().toArray(new String[0])).permitAll()
                 // 设置 App API 无需认证
-                .antMatchers(buildAppApi("/**")).permitAll()
-
+                //.antMatchers(buildAppApi("/**")).permitAll()
+                .and()
                 // ②：每个项目的自定义规则
-                .and().authorizeRequests(registry -> // 下面，循环设置自定义规则
-                authorizeRequestsCustomizers.forEach(customizer -> customizer.customize(registry)))
+                //.and().authorizeRequests(registry -> // 下面，循环设置自定义规则
+                //authorizeRequestsCustomizers.forEach(customizer -> customizer.customize(registry)))
                 // ③：兜底规则，必须认证
                 .authorizeRequests()
                 .anyRequest().authenticated()
@@ -122,13 +114,13 @@ public class DefaultWebSecurityConfigurerAdapter {
     /**
      * 认证失败处理类 Bean
      */
-    @Resource
-    private AuthenticationEntryPoint authenticationEntryPoint;
-    /**
-     * 权限不够处理器 Bean
-     */
-    @Resource
-    private AccessDeniedHandler accessDeniedHandler;
+    //@Resource
+    //private AuthenticationEntryPoint authenticationEntryPoint;
+    ///**
+    // * 权限不够处理器 Bean
+    // */
+    //@Resource
+    //private AccessDeniedHandler accessDeniedHandler;
     /**
      * Token 认证过滤器 Bean
      */
@@ -137,11 +129,9 @@ public class DefaultWebSecurityConfigurerAdapter {
 
     /**
      * 自定义的权限映射 Bean 们
-     *
-     * @see #configure(HttpSecurity)
      */
-    @Resource
-    private List<AuthorizeRequestsCustomizer> authorizeRequestsCustomizers;
+    //@Resource
+    //private List<AuthorizeRequestsCustomizer> authorizeRequestsCustomizers;
 
     @Resource
     private ApplicationContext applicationContext;
@@ -155,9 +145,9 @@ public class DefaultWebSecurityConfigurerAdapter {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
-    private String buildAppApi(String url) {
-        return webProperties.getAppApi().getPrefix() + url;
-    }
+    //private String buildAppApi(String url) {
+    //    return webProperties.getAppApi().getPrefix() + url;
+    //}
 
     private Multimap<HttpMethod, String> getPermitAllUrlsFromAnnotations() {
         Multimap<HttpMethod, String> result = HashMultimap.create();

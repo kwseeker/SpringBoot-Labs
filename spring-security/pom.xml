@@ -18,6 +18,8 @@
     <module>lab-spring-boot-starter-security</module>
     <module>lab-03-springsecurity-demo-starter</module>
     <module>lab-04-springsecurity-demo-newversion</module>
+    <module>lab-05-spring-security-repeat-chain</module>
+    <module>lab-spring-boot-starter-rs</module>
   </modules>
 
 </project>

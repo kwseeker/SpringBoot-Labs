@@ -1,0 +1,2 @@
+top.kwseeker.lab.security.repeat.config.DefaultSecurityAutoConfiguration
+top.kwseeker.lab.security.repeat.config.DefaultWebSecurityConfigurerAdapter
