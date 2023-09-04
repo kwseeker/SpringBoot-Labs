@@ -6,6 +6,7 @@ import cn.iocoder.springboot.lab27.springwebflux.service.UserService;
 import cn.iocoder.springboot.lab27.springwebflux.vo.UserVO;
 import org.reactivestreams.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -79,6 +80,29 @@ public class UserController {
         Integer returnId = 1;
         // 返回用户编号
         return Mono.just(returnId);
+    }
+
+    @PostMapping("add3")
+    public Mono<Integer> add3(@RequestBody UserAddDTO addDTO) {
+        System.out.println("add3 addDTO:" + addDTO);
+        // 插入用户记录，返回编号
+        Integer returnId = 1;
+        // 返回用户编号
+        return Mono.just(returnId);
+    }
+
+    //@ModelAttribute("user")
+    //public UserAddDTO getUserModel() {
+    //    UserAddDTO userAddDTO = new UserAddDTO();
+    //    userAddDTO.setUsername("kwseeker");
+    //    userAddDTO.setPassword("3333");
+    //    return userAddDTO;
+    //}
+
+    @InitBinder("user")
+    public void initBinder(WebDataBinder binder) {
+        System.out.println("WebDataBinder: add UserValidator");
+        binder.addValidators(new UserValidator());
     }
 
     /**

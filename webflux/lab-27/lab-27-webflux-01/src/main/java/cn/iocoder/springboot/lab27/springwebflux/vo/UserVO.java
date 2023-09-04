@@ -32,4 +32,11 @@ public class UserVO {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "UserVO{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

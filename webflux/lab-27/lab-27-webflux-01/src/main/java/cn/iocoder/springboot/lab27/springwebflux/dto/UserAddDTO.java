@@ -32,4 +32,11 @@ public class UserAddDTO {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "UserAddDTO{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
