@@ -1,2 +1,12 @@
 server:
   port: 8081
+
+spring:
+  application:
+    name: service-echo
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:localhost:8848}
+        namespace: ${NAMESPACE:dev}
+        group: GATEWAY-SAMPLE
