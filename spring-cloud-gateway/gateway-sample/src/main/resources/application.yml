@@ -2,16 +2,9 @@ server:
   port: 8080
 
 spring:
-  cloud:
-    gateway:
-      routes: # 和 RouteLocatorBuilder 只能二选一
-        - id: route-service-echo
-          uri: http://localhost:8081
-          order: 1000
-          predicates:
-            - Path=/echo/**
-        - id: route-service-time
-          uri: http://localhost:8082
-          order: 2000
-          predicates:
-            - Path=/time/**
+  profiles:
+    active: dev-3
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    gateway:
+      routes:   # 和 RouteLocatorBuilder 二选一
+        - id: route-service-echo
+          uri: http://localhost:8081
+          order: 1000
+          predicates:
+            - Path=/echo/**
+            #- Cookie=mycookie,mycookievalue
+            - After=2023-10-01T20:00:00.000+08:00[Asia/Shanghai]
+            - Before=2023-10-02T22:00:00.000+08:00[Asia/Shanghai]
+            - Header=X-Request-Id, \d+
+        - id: route-service-echo-greet
+          uri: http://localhost:8081
+          order: 1000
+          predicates:
+            - Path=/echo/greet/{name}
+        - id: route-service-time
+          uri: http://localhost:8082
+          order: 2000
+          predicates:
+            - Path=/time/**

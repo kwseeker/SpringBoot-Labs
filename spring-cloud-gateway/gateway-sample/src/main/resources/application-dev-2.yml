@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      routes:   # 和 RouteLocatorBuilder 二选一
+#        - id: route-service-all       # 测试没有任何断言的路由，会抛出异常
+#          uri: http://localhost:8081
+        - id: route-service-time
+          uri: http://localhost:8082
+#          order: 2000
+          predicates:
+            - Path=/time/**
+        - id: route-service-echo-wh
+          uri: http://localhost:8081
+#          order: 2001
+          predicates:
+            - Weight=group1, 8
+        - id: route-service-echo-wl
+          uri: http://localhost:8081
+#          order: 2001
+          predicates:
+            - Weight=group1, 2

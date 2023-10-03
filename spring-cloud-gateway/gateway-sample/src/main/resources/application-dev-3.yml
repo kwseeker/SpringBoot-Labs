@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        # 比如代码迭代，从v1.0升级到v2.0, 接口实现改变但是路径没变(/time/**)
+        # 通过网关的v1/v2,区分用户请求的导向
+        - id: route-service-time-v1.0
+          uri: http://localhost:8082
+          predicates:
+            - Path=/v1/time/**
+          filters:
+            - StripPrefix=1
+        - id: route-service-time-v2.0
+          uri: http://localhost:8092
+          predicates:
+            - Path=/v2/time/**
+          filters:
+            - StripPrefix=1
+#      default-filters:
