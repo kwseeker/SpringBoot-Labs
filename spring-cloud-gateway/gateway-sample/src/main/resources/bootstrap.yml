@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:localhost:8848}
+      discovery:
+        namespace: ${NAMESPACE:dev}
+        group: GATEWAY-SAMPLE
+      config:
+        namespace: ${NAMESPACE:dev}
+        group: GATEWAY-SAMPLE
+        name:                 # 使用的 Nacos 配置集的 dataId，默认为 spring.application.name
+        file-extension: yaml  # 配置文件格式

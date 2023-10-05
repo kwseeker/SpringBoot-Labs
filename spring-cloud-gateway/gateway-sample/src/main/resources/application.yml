@@ -2,8 +2,10 @@ server:
   port: 8080
 
 spring:
-  profiles:
-    active: dev-4
+  application:
+    name: gateway-sample
+#  profiles:
+#    active: dev-5
 
 logging:
   level:
