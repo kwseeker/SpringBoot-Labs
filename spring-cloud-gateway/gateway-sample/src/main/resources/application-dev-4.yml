@@ -3,25 +3,24 @@ spring:
   cloud:
     gateway:
       routes:
-        # 动态路由
-        - id: route-service-echo-dynamic
-#          uri: http://localhost:8081
-          uri: lb://service-echo
-          predicates:
-            - Path=/service-echo/**
-          filters:
-            - RewritePath=/service-echo/(?<remaining>.*), /${remaining}   # 将 /service-echo 前缀剔除
-        - id: route-service-time-dynamic
-          uri: lb://service-time
-          predicates:
-            - Path=/service-time/**
-          filters:
-            - RewritePath=/service-time/(?<remaining>.*), /${remaining}   # 将 /service-time 前缀剔除
+        # 配置了discovery.locator（动态路由）后就不需要手动配置下面两个路由了
+#        - id: route-service-echo-dynamic
+#          uri: lb://service-echo
+#          predicates:
+#            - Path=/service-echo/**
+#          filters:
+#            - RewritePath=/service-echo/(?<remaining>.*), /${remaining}   # 将 /service-echo 前缀剔除
+#        - id: route-service-time-dynamic
+#          uri: lb://service-time
+#          predicates:
+#            - Path=/service-time/**
+#          filters:
+#            - RewritePath=/service-time/(?<remaining>.*), /${remaining}   # 将 /service-time 前缀剔除
         - id: route-service-time-statistic
           uri: http://localhost:8082
           predicates:
             - Path=/time/**
-      # 通过服务注册与发现,动态将服务名替换为服务节点地址
+      # 通过服务注册与发现，动态创建路由，会自动为所有注册到注册中心的服务创建路由
       discovery:
         locator:
           enabled: true                           # 是否开启，默认为 false

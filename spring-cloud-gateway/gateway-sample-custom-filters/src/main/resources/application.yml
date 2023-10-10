@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-sample
+
+  # 基于注册中心的动态路由
+  cloud:
+    gateway:
+      routes:
+        # 动态路由
+        - id: route-service-echo-lb
+#          uri: lb://service-echo
+          uri: grayLb://service-echo
+          predicates:
+            - Path=/service-echo/**
+          filters:
+            - RewritePath=/service-echo/(?<remaining>.*), /${remaining}   # 将 /service-echo 前缀剔除
+        - id: route-service-time-lb
+#          uri: lb://service-time
+          uri: grayLb://service-time
+          predicates:
+            - Path=/service-time/**
+          filters:
+            - RewritePath=/service-time/(?<remaining>.*), /${remaining}   # 将 /service-time 前缀剔除
+      # 通过服务注册与发现,动态将服务名替换为服务节点地址
+#      discovery:
+#        locator:
+#          enabled: true                           # 是否开启，默认为 false
+#          lower-case-service-id: true
+#          predicates:
+#          url-expression: "'lb://' + serviceId"   # 路由的目标地址的表达式，默认为 "'lb://' + serviceId"
+
+    # Nacos 作为注册中心的配置项
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:localhost:8848}
+      discovery:
+        namespace: ${NAMESPACE:dev}
+        group: GATEWAY-SAMPLE
+
+logging:
+  level:
+    org.springframework.cloud.gateway: trace

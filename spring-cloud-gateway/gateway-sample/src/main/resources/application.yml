@@ -4,8 +4,8 @@ server:
 spring:
   application:
     name: gateway-sample
-#  profiles:
-#    active: dev-5
+  profiles:
+    active: dev-4
 
 logging:
   level:
