@@ -28,7 +28,7 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.G
 /**
  * 带灰度发布的负载均衡全局过滤器
  */
-@Component
+//@Component
 @SuppressWarnings({"rawtypes", "unchecked", "ConstantConditions"})
 public class GrayReactiveLoadBalancerClientFilter implements GlobalFilter, Ordered {
 

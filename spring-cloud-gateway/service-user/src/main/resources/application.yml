@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: service-user
+  profiles:
+    active: local
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:localhost:8848}
+        namespace: ${NAMESPACE:dev}
+        group: GATEWAY-SAMPLE
+
+example:
+  info:
+    base-package: top.kwseeker.cloud.gateway.user
+

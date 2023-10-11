@@ -11,15 +11,15 @@ spring:
       routes:
         # 动态路由
         - id: route-service-echo-lb
-#          uri: lb://service-echo
-          uri: grayLb://service-echo
+          uri: lb://service-echo
+#          uri: grayLb://service-echo
           predicates:
             - Path=/service-echo/**
           filters:
             - RewritePath=/service-echo/(?<remaining>.*), /${remaining}   # 将 /service-echo 前缀剔除
         - id: route-service-time-lb
-#          uri: lb://service-time
-          uri: grayLb://service-time
+          uri: lb://service-time
+#          uri: grayLb://service-time
           predicates:
             - Path=/service-time/**
           filters:
