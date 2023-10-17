@@ -23,6 +23,7 @@
         <!--        <module>lab-05-benchmark-tomcat-jetty-undertow</module>-->
         <module>lab-06</module>
         <module>lab-07</module>
+        <module>netflix-ribbon</module>
         <!--        <module>lab-11-spring-data-redis</module>-->
         <!--        <module>lab-12-mybatis</module>-->
         <!--        <module>lab-13-spring-data-jpa</module>-->
