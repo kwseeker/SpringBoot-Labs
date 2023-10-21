@@ -1,6 +1,7 @@
 package cn.iocoder.springcloudnetflix.labx02.ribbondemo.consumer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.ServiceInstance;
@@ -24,17 +25,27 @@ public class DemoConsumerApplication {
 
         @Bean
         @LoadBalanced
+        @Qualifier("restTemplateWithLB")
         public RestTemplate restTemplate() {
             return new RestTemplate();
         }
 
+        @Bean
+        @Qualifier("restTemplateWithoutLB")
+        public RestTemplate restTemplateWithoutLoadBalanced() {
+            return new RestTemplate();
+        }
     }
 
     @RestController
     static class TestController {
 
         @Autowired
+        @Qualifier("restTemplateWithLB")
         private RestTemplate restTemplate;
+        @Autowired
+        @Qualifier("restTemplateWithoutLB")
+        private RestTemplate restTemplateWithoutLB;
         @Autowired
         private LoadBalancerClient loadBalancerClient;
 
@@ -44,7 +55,8 @@ public class DemoConsumerApplication {
             ServiceInstance instance = loadBalancerClient.choose("demo-provider");
             // 发起调用
             String targetUrl = instance.getUri() + "/echo?name=" + name;
-            String response = restTemplate.getForObject(targetUrl, String.class);
+            //String response = restTemplate.getForObject(targetUrl, String.class); //带注解@LoadBalanced的RestTemplate会将ip当作服务名处理
+            String response = restTemplateWithoutLB.getForObject(targetUrl, String.class);
             // 返回结果
             return "consumer:" + response;
         }

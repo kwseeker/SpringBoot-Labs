@@ -21,7 +21,8 @@ ribbon:
 demo-provider:
   ribbon:
     ConnectTimeout: 1000 # 请求的连接超时时间，单位：毫秒。默认为 1000
-    ReadTimeout: 1 # 请求的读取超时时间，单位：毫秒。默认为 1000
+    ReadTimeout: 1000 # 请求的读取超时时间，单位：毫秒。默认为 1000
+#    ReadTimeout: 10 # 请求的读取超时时间，单位：毫秒。默认为 1000
     OkToRetryOnAllOperations: true # 是否对所有操作都进行重试，默认为 false。
     MaxAutoRetries: 0 # 对当前服务的重试次数，默认为 0 次。
     MaxAutoRetriesNextServer: 1 # 重新选择服务实例的次数，默认为 1 次。注意，不包含第 1 次哈。
