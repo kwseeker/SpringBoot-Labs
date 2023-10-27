@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: demo-consumer # Spring 应用名
+  cloud:
+    nacos:
+      # Nacos 作为注册中心的配置项，对应 NacosDiscoveryProperties 配置类
+      discovery:
+        server-addr: 127.0.0.1:8848 # Nacos 服务器地址
+        cluster-name: BJ
+
+    loadbalancer:
+      # 是否开启负载均衡功能，默认为true
+      enabled: true
+      configurations: same-cluster-only
+      # LoadBalancer缓存，不配置默认使用默认的LoadBalancer缓存实现DefaultLoadBalancerCache，这时日志中还会看到一条Warn
+#      cache:
+#        # 是否开启缓存
+#        enabled: true
+#        # 如果类路径中有com.github.ben-manes.caffeine:caffeine，也会使用caffeine的实现
+##        caffeine:
+##          # 指定自定义的caffeine规范，TODO
+##          spec:
+#        ttl: 35s      # 默认35s
+#        capacity: 256 # 默认256个
+#      # 基于区域的负载均衡，依赖服务发现组件
+#      # 借助 ZonePreferenceServiceInstanceListSupplier 过滤检索到的实例，仅返回同一区域内的实例。如果区域为 null 或同一区域内没有实例，则返回所有检索到的实例
+#      #zone:
+#      # 负载均衡服务实例的健康检查
+#      health-check:
+#        initial-delay: 0
+#        interval: 25s
+##        refetch-instances: false  # 是否自动刷新实例列表，默认为false
+#        refetch-instances-interval: 25s
+#        #path:        # 默认使用 /actuator/health 做健康检查，依赖 spring-boot-starter-actuator
+#          #default:
+#        #port:        # 设置运行状况检查请求的自定义端口
+#        repeat-health-check: true
+#      # 使用 SameInstancePreferenceServiceInstanceListSupplier 总是将请求发给之前选择的实例
+#      #configurations: same-instance-preference
+#      # 总是优先选择请求 cookie 中提供的 instanceId 的实例
+#      configurations: request-based-sticky-session
+#      sticky-session:
+#        add-service-instance-cookie: true
+#        instance-id-cookie-name: instance-id-cookie-name # 如果需要修改 RequestBasedStickySessionServiceInstanceListSupplier Cookie名
+#      # 用于使用请求头中传递的提示值来过滤服务实例
+##      hint-header-name: X-SC-LB-Hint
+#      # 用于请求失败重试
+#      retry:
+#        enabled: true # 是否开启重试，默认false
+#        max-retries-on-same-service-instance: 3
+#        max-retries-on-next-service-instance: 3
+#        retryable-status-codes: 403,404,500  # 仅对某些状态码执行重试
+#        backoff:      # 回退策略，默认只支持响应式实现，非响应式请求需要自行实现LoadBalancedRetryFactory createBackOffPolicy()方法
+#          enabled: false
+#      use-raw-status-code-in-response-data: true
+
+server:
+  port: 28080 # 服务器端口。默认为 8080
