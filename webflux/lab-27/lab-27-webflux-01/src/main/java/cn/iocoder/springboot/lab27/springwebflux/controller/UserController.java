@@ -91,6 +91,15 @@ public class UserController {
         return Mono.just(returnId);
     }
 
+    @PostMapping("add4")
+    public Mono<Integer> add4(@RequestParam("username") String username, @RequestParam("password") String password) {
+        System.out.printf("add4: username='%s',password='%s'\n", username, password);
+        // 插入用户记录，返回编号
+        Integer returnId = 1;
+        // 返回用户编号
+        return Mono.just(returnId);
+    }
+
     //@ModelAttribute("user")
     //public UserAddDTO getUserModel() {
     //    UserAddDTO userAddDTO = new UserAddDTO();
@@ -99,10 +108,16 @@ public class UserController {
     //    return userAddDTO;
     //}
 
-    @InitBinder("user")
+    //@InitBinder对@RequestBody这种基于消息转换器的请求参数无效
+    //因为@InitBinder它用于初始化DataBinder数据绑定、类型转换等功能，而@RequestBody它的数据解析、转换时消息转换器来完成的，所以即使你自定义了属性编辑器，对它是不生效的
+    //@InitBinder("user")
+    //@InitBinder({"username", "password", "user"})
+    @InitBinder({"username", "user"})
     public void initBinder(WebDataBinder binder) {
-        System.out.println("WebDataBinder: add UserValidator");
+        System.out.println("initBinder");
         binder.addValidators(new UserValidator());
+        //binder.addValidators(new StringParamValidator());
+        binder.registerCustomEditor(String.class, new StringTrimmerEditor());
     }
 
     /**

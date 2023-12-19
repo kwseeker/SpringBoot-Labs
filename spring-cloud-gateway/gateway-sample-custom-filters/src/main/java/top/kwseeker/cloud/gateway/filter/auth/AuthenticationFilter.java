@@ -35,7 +35,7 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
     private static final TypeReference<CommonResult<OAuth2AccessTokenCheckRespDTO>> CHECK_RESULT_TYPE_REFERENCE
             = new TypeReference<CommonResult<OAuth2AccessTokenCheckRespDTO>>() {};
 
-    //reactor-netty WebClient TODO
+    //spring-webflux WebClient
     private final WebClient webClient;
     //本地缓存， TODO 替换为分布式缓存 或 换JWT
     //租户ID -> Token

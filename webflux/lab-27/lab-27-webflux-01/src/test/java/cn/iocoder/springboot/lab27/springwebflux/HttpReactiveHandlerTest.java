@@ -1,13 +1,17 @@
 package cn.iocoder.springboot.lab27.springwebflux;
 
 import org.junit.Test;
+import org.springframework.web.reactive.HandlerResult;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
 public class HttpReactiveHandlerTest {
 
@@ -81,5 +85,28 @@ public class HttpReactiveHandlerTest {
                 .subscribe();
 
         Thread.sleep(1000);
+    }
+
+    @Test
+    public void testMonoZipAndWhen() {
+        final Map<String, Object> bindingContext = new HashMap<>();
+
+        Mono<Void> voidMono = Mono.zip(Arrays.asList(Mono.just(1), Mono.just(2)), objectArray ->
+                        Arrays.stream(objectArray)
+                                //.map(object -> handleResult(((HandlerResult) object), bindingContext))
+                                .map(object -> {
+                                    bindingContext.put(String.valueOf(object), object);
+                                    return Mono.empty();
+                                })
+                                .collect(Collectors.toList()))
+                .flatMap(Mono::when)
+                .doOnSuccess(aVoid -> System.out.println("zip all done"));
+
+        voidMono.then(Mono.defer(() -> {
+            System.out.println("after zip all done");
+            return Mono.just("done");
+        })).subscribe();
+
+        assertEquals(2, bindingContext.size());
     }
 }

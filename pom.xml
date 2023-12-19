@@ -24,6 +24,9 @@
         <module>lab-06</module>
         <module>lab-07</module>
         <module>loadbalancer-ribbon</module>
+        <module>sentinel</module>
+        <module>sharding-sphere</module>
+        <module>shiro</module>
         <!--        <module>lab-11-spring-data-redis</module>-->
         <!--        <module>lab-12-mybatis</module>-->
         <!--        <module>lab-13-spring-data-jpa</module>-->
@@ -59,7 +62,6 @@
         <!--        <module>lab-43</module>-->
         <!--        <module>lab-44</module>-->
         <!--        <module>lab-45</module>-->
-        <!--        <module>lab-46</module>-->
         <!--        <module>lab-47</module>-->
         <!--        <module>lab-48-hot-swap</module>-->
         <!--        <module>lab-49</module>-->

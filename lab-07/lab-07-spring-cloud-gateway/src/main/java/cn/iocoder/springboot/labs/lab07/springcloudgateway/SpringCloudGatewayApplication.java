@@ -13,7 +13,7 @@ public class SpringCloudGatewayApplication {
     public RouteLocator myRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(r -> r.path("/hello.txt")
-                    .uri("http://localhost:8000/hello.txt"))
+                        .uri("http://localhost:8000/hello.txt"))
                 .route(r -> r.path("/**")
                         .uri("http://localhost:8080"))
                 .build();
