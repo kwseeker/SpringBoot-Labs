@@ -27,6 +27,7 @@
         <module>sentinel</module>
         <module>sharding-sphere</module>
         <module>shiro</module>
+        <module>spring-expression</module>
         <!--        <module>lab-11-spring-data-redis</module>-->
         <!--        <module>lab-12-mybatis</module>-->
         <!--        <module>lab-13-spring-data-jpa</module>-->
