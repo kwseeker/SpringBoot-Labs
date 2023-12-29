@@ -7,6 +7,7 @@ import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.SpelEvaluationException;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
+import org.springframework.expression.spel.support.StandardEvaluationContext;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -49,13 +50,30 @@ class HelloSpELTest {
         assertEquals(10, expr31.getValue(Integer.class));
     }
 
+    @Test
+    public void test31() {
+        //String没有bytes属性,只有getBytes()方法，或许SpEL是通过Getter方法访问的属性
+        Expression expr3 = parser.parseExpression(" 'Hello SpEL'.bytes.length ");
+        Expression expr31 = parser.parseExpression(" 'Hello SpEL'.getBytes().length ");
+        assertEquals(10, expr3.getValue(Integer.class));
+        assertEquals(10, expr31.getValue(Integer.class));
+    }
+
     //调用构造方法 ------------------------------------------------------------------
 
+    //读取一个不存在的属性，会转换成调用其getter方法
+    //比如：这里访问 student 这个boolean类型属性，但是实际根对象中并不存在这个属性，会调用isStudent()方法
     @Test
     public void test4() {
-        Expression exp = parser.parseExpression("new String('hello world').toUpperCase()");
-        String message = exp.getValue(String.class);
-        assertEquals("HELLO WORLD", message);
+        StandardEvaluationContext context = new StandardEvaluationContext();
+        Person arvin = new Person("Arvin", 18);
+        context.setRootObject(arvin);
+        
+        //根对象arvin中不存在student属性，实际会调用isStudent()方法
+        Expression expr = parser.parseExpression("student");
+        Boolean isStudent = expr.getValue(context, Boolean.class);
+        
+        assertEquals(Boolean.FALSE, isStudent);
     }
 
     //除了“java.lang”包下的类其他所有类都需要全限定名
@@ -108,6 +126,11 @@ class HelloSpELTest {
 
         public void setAge(int age) {
             this.age = age;
+        }
+
+        public boolean isStudent() {
+            System.out.println("calling isStudent()");
+            return false;
         }
     }
 }
