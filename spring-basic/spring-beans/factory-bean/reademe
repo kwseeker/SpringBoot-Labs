@@ -1,0 +1,20 @@
+测试DEMO来源于官方文档：https://spring.io/blog/2011/08/09/what-s-a-factorybean/
+这里用于调试 spring 2.7.14 版本 FactoryBean 工作原理。
+
+FactoryBean API文档： https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/FactoryBean.html
+
+API文档有列举众多实现类：
+AbstractEntityManagerFactoryBean, AbstractFactoryBean, AbstractServiceLoaderBasedFactoryBean, AbstractSingletonProxyFactoryBean,
+CacheProxyFactoryBean, ConcurrentMapCacheFactoryBean, ConnectorServerFactoryBean, ContentNegotiationManagerFactoryBean,
+ConversionServiceFactoryBean, CronTriggerFactoryBean, DateTimeFormatterFactoryBean, EmbeddedDatabaseFactoryBean,
+FieldRetrievingFactoryBean, ForkJoinPoolFactoryBean, FormattingConversionServiceFactoryBean, FreeMarkerConfigurationFactoryBean,
+GsonFactoryBean, Jackson2ObjectMapperFactoryBean, JCacheManagerFactoryBean, JndiObjectFactoryBean, JobDetailFactoryBean,
+JtaTransactionManagerFactoryBean, ListFactoryBean, LocalConnectionFactoryBean, LocalContainerEntityManagerFactoryBean,
+LocalEntityManagerFactoryBean, LocalSessionFactoryBean, MapFactoryBean, MBeanProxyFactoryBean, MBeanServerConnectionFactoryBean,
+MBeanServerFactoryBean, MethodInvokingFactoryBean, MethodInvokingJobDetailFactoryBean, MethodLocatingFactoryBean,
+ObjectFactoryCreatingFactoryBean, PropertiesFactoryBean, PropertyPathFactoryBean, ProviderCreatingFactoryBean,
+ProxyFactoryBean, ProxyFactoryBean, ResourceAdapterFactoryBean, ScheduledExecutorFactoryBean, SchedulerFactoryBean,
+ScopedProxyFactoryBean, ServiceFactoryBean, ServiceListFactoryBean, ServiceLoaderFactoryBean, ServiceLocatorFactoryBean,
+ServletContextAttributeFactoryBean, ServletContextParameterFactoryBean, ServletServerContainerFactoryBean, SetFactoryBean,
+SharedEntityManagerBean, SimpleTriggerFactoryBean, SortedResourcesFactoryBean, TaskExecutorFactoryBean, ThreadPoolExecutorFactoryBean,
+TransactionProxyFactoryBean, WebSocketContainerFactoryBean, YamlMapFactoryBean, YamlPropertiesFactoryBean
