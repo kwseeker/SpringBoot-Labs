@@ -15,6 +15,7 @@
         <module>skywalking</module>
         <module>spring-cloud-gateway</module>
         <module>webflux</module>
+        <module>workflow</module>
         <!-- Spring Boot 示例 -->
         <!--        <module>lab-01-spring-security</module>-->
         <!--        <module>lab-02-spring-security-oauth</module>-->
