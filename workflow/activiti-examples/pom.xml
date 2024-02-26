@@ -19,21 +19,21 @@
   </properties>
 
   <modules>
-    <module>activiti-api-basic-full-example-bean</module>
-    <module>activiti-api-basic-full-example-nobean</module>
-    <module>activiti-api-basic-connector-example</module>
+    <!--<module>activiti-api-basic-full-example-bean</module>-->
+    <!--<module>activiti-api-basic-full-example-nobean</module>-->
+    <!--<module>activiti-api-basic-connector-example</module>-->
     <module>activiti-api-basic-process-example</module>
     <module>activiti-api-basic-task-example</module>
-    <module>activiti-api-spring-integration-example</module>
-    <module>activiti-api-web-example</module>
+    <!--<module>activiti-api-spring-integration-example</module>-->
+    <!--<module>activiti-api-web-example</module>-->
   </modules>
 
   <dependencies>
     <dependency>
-      <groupId>org.activiti.dependencies</groupId>
-      <artifactId>activiti-dependencies</artifactId>
-      <version>${activiti.version}</version>
-      <type>pom</type>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.10.1</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 

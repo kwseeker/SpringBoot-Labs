@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>top.kwseeker.labs</groupId>
+        <artifactId>workflow</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <groupId>top.kwseeker.labs.activiti</groupId>
+    <artifactId>activiti-simple-examples</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>simple01</module>
+    </modules>
+
+    <properties>
+        <activiti.version>7.0.0.GA</activiti.version>
+        <junit-jupiter.version>5.10.1</junit-jupiter.version>
+        <!-- 可能存在版本兼容问题，选择和官方示例一样的版本 -->
+        <logback.version>1.2.3</logback.version>
+        <h2-database.version>1.4.197</h2-database.version>
+        <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
+        <hikaricp.version>5.1.0</hikaricp.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.activiti</groupId>
+                <artifactId>activiti-engine</artifactId>
+                <version>${activiti.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2-database.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>${hikaricp.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
