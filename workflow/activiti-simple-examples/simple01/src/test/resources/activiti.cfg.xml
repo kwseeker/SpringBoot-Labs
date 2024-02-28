@@ -23,8 +23,30 @@
         <!--<property name="jdbcPassword" value="" />-->
         <!-- 使用 MySQL -->
         <property name="dataSource" ref="hikariDataSource" />
+        <!-- 实际使用肯定需要修改数据库名，可以通过这个属性修改 -->
+        <property name="databaseSchema" value="activiti"/>
         <!-- 有3种策略，设置为true表示在必要时执行数据库更新。如果数据库不存在则创建它 -->
+        <!--<property name="databaseSchemaUpdate" value="create-drop" />-->
         <property name="databaseSchemaUpdate" value="true" />
+
+        <!-- 注册事件监听器，这种方式会监听所有事件类型 -->
+        <!--<property name="eventListeners">-->
+        <!--    <list>-->
+        <!--        <bean class="top.kwseeker.labs.activiti.simple01.MyEventListener"/>-->
+        <!--    </list>-->
+        <!--</property>-->
+        <!--同样是注册事件监听器，不过是只关注部分事件-->
+        <property name="typedEventListeners">
+            <map>
+                <!-- 关注的事件 -> 对应监听器的列表 -->
+                <entry key="ENGINE_CREATED,ENGINE_CLOSED,ACTIVITY_STARTED,ACTIVITY_COMPLETED,TASK_CREATED,TASK_COMPLETED,JOB_EXECUTION_SUCCESS,JOB_EXECUTION_FAILURE" >
+                    <list>
+                        <bean class="top.kwseeker.labs.activiti.simple01.MyEventListener" />
+                    </list>
+                </entry>
+                <!-- 还可以添加其他映射 -->
+            </map>
+        </property>
     </bean>
 
 </beans>

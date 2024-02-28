@@ -2,10 +2,14 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
-            </pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
+
+    <logger name="org.apache.ibatis" level="DEBUG"/>
+    <!-- 打印sql语句，查源码日志发现在sql语句的日志在 org.activiti.engine.impl.db.DbSqlSession -->
+    <logger name="org.activiti.engine.impl.db" level="DEBUG"/>
+    <logger name="org.activiti.engine.impl.interceptor" level="DEBUG"/>
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
