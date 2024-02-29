@@ -22,6 +22,7 @@
     <modules>
         <module>activiti-examples</module>
         <module>activiti-simple-examples</module>
+        <module>activiti-springboot-example</module>
     </modules>
 
 </project>

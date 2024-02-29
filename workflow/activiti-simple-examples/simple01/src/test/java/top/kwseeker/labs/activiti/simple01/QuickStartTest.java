@@ -68,7 +68,6 @@ class QuickStartTest {
             assertEquals(1, count2);
 
             //2 模拟主管审批（拒绝）
-            //TODO：通过监听器向主管发送审批提醒消息
             //主管查询自己待审批任务（假设主管属于management用户组）
             TaskService taskService = processEngine.getTaskService();
             List<Task> tasks = taskService.createTaskQuery()
