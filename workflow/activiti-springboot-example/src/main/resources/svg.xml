@@ -1,0 +1,964 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:oryx="http://oryx-editor.org"
+     id="sid-612F033E-1040-46DC-A286-8396773F4C70" width="1010" height="500" xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:svg="http://www.w3.org/2000/svg">
+    <defs>
+        <marker id="sid-3D43535E-A6D5-4799-A863-3C4D319765CEstart" refX="1" refY="5" markerUnits="userSpaceOnUse"
+                markerWidth="17" markerHeight="11" orient="auto">
+            undefined
+            <path id="sid-3D43535E-A6D5-4799-A863-3C4D319765CEdefault" d="M 5 0 L 11 10" fill="white" stroke="#585858"
+                  stroke-width="1" display="none"/>
+        </marker>
+        <marker id="sid-3D43535E-A6D5-4799-A863-3C4D319765CEend" refX="15" refY="6" markerUnits="userSpaceOnUse"
+                markerWidth="15" markerHeight="12" orient="auto">
+            <path id="sid-3D43535E-A6D5-4799-A863-3C4D319765CEarrowhead" d="M 0 1 L 15 6 L 0 11z" fill="#585858"
+                  stroke="#585858" stroke-linejoin="round" stroke-width="2"/>
+        </marker>
+        <marker id="sid-67149E83-5AE8-4CCC-8F38-DB2C7786B237start" refX="1" refY="5" markerUnits="userSpaceOnUse"
+                markerWidth="17" markerHeight="11" orient="auto">
+            undefined
+            <path id="sid-67149E83-5AE8-4CCC-8F38-DB2C7786B237default" d="M 5 0 L 11 10" fill="white" stroke="#585858"
+                  stroke-width="1" display="none"/>
+        </marker>
+        <marker id="sid-67149E83-5AE8-4CCC-8F38-DB2C7786B237end" refX="15" refY="6" markerUnits="userSpaceOnUse"
+                markerWidth="15" markerHeight="12" orient="auto">
+            <path id="sid-67149E83-5AE8-4CCC-8F38-DB2C7786B237arrowhead" d="M 0 1 L 15 6 L 0 11z" fill="#585858"
+                  stroke="#585858" stroke-linejoin="round" stroke-width="2"/>
+        </marker>
+        <marker id="sid-1A850680-51E4-4A2B-A2DF-51D86BE498E7start" refX="1" refY="5" markerUnits="userSpaceOnUse"
+                markerWidth="17" markerHeight="11" orient="auto">
+            undefined
+            <path id="sid-1A850680-51E4-4A2B-A2DF-51D86BE498E7default" d="M 5 0 L 11 10" fill="white" stroke="#585858"
+                  stroke-width="1" display="none"/>
+        </marker>
+        <marker id="sid-1A850680-51E4-4A2B-A2DF-51D86BE498E7end" refX="15" refY="6" markerUnits="userSpaceOnUse"
+                markerWidth="15" markerHeight="12" orient="auto">
+            <path id="sid-1A850680-51E4-4A2B-A2DF-51D86BE498E7arrowhead" d="M 0 1 L 15 6 L 0 11z" fill="#585858"
+                  stroke="#585858" stroke-linejoin="round" stroke-width="2"/>
+        </marker>
+        <marker id="sid-8302A074-2BDC-4C35-B346-34BCBC5FCD56start" refX="1" refY="5" markerUnits="userSpaceOnUse"
+                markerWidth="17" markerHeight="11" orient="auto">
+            undefined
+            <path id="sid-8302A074-2BDC-4C35-B346-34BCBC5FCD56default" d="M 5 0 L 11 10" fill="white" stroke="#585858"
+                  stroke-width="1" display="none"/>
+        </marker>
+        <marker id="sid-8302A074-2BDC-4C35-B346-34BCBC5FCD56end" refX="15" refY="6" markerUnits="userSpaceOnUse"
+                markerWidth="15" markerHeight="12" orient="auto">
+            <path id="sid-8302A074-2BDC-4C35-B346-34BCBC5FCD56arrowhead" d="M 0 1 L 15 6 L 0 11z" fill="#585858"
+                  stroke="#585858" stroke-linejoin="round" stroke-width="2"/>
+        </marker>
+        <marker id="sid-D3BF2FC5-85E7-4543-B0DD-011A5D27A7C2start" refX="1" refY="5" markerUnits="userSpaceOnUse"
+                markerWidth="17" markerHeight="11" orient="auto">
+            undefined
+            <path id="sid-D3BF2FC5-85E7-4543-B0DD-011A5D27A7C2default" d="M 5 0 L 11 10" fill="white" stroke="#585858"
+                  stroke-width="1" display="none"/>
+        </marker>
+        <marker id="sid-D3BF2FC5-85E7-4543-B0DD-011A5D27A7C2end" refX="15" refY="6" markerUnits="userSpaceOnUse"
+                markerWidth="15" markerHeight="12" orient="auto">
+            <path id="sid-D3BF2FC5-85E7-4543-B0DD-011A5D27A7C2arrowhead" d="M 0 1 L 15 6 L 0 11z" fill="#585858"
+                  stroke="#585858" stroke-linejoin="round" stroke-width="2"/>
+        </marker>
+        <marker id="sid-5E875358-BAD8-4867-BE29-731445FA8FB7start" refX="1" refY="5" markerUnits="userSpaceOnUse"
+                markerWidth="17" markerHeight="11" orient="auto">
+            undefined
+            <path id="sid-5E875358-BAD8-4867-BE29-731445FA8FB7default" d="M 5 0 L 11 10" fill="white" stroke="#585858"
+                  stroke-width="1" display="none"/>
+        </marker>
+        <marker id="sid-5E875358-BAD8-4867-BE29-731445FA8FB7end" refX="15" refY="6" markerUnits="userSpaceOnUse"
+                markerWidth="15" markerHeight="12" orient="auto">
+            <path id="sid-5E875358-BAD8-4867-BE29-731445FA8FB7arrowhead" d="M 0 1 L 15 6 L 0 11z" fill="#585858"
+                  stroke="#585858" stroke-linejoin="round" stroke-width="2"/>
+        </marker>
+        <marker id="sid-7DCD611A-4DBC-43CC-8B40-8D4001154DB6start" refX="1" refY="5" markerUnits="userSpaceOnUse"
+                markerWidth="17" markerHeight="11" orient="auto">
+            undefined
+            <path id="sid-7DCD611A-4DBC-43CC-8B40-8D4001154DB6default" d="M 5 0 L 11 10" fill="white" stroke="#585858"
+                  stroke-width="1" display="none"/>
+        </marker>
+        <marker id="sid-7DCD611A-4DBC-43CC-8B40-8D4001154DB6end" refX="15" refY="6" markerUnits="userSpaceOnUse"
+                markerWidth="15" markerHeight="12" orient="auto">
+            <path id="sid-7DCD611A-4DBC-43CC-8B40-8D4001154DB6arrowhead" d="M 0 1 L 15 6 L 0 11z" fill="#585858"
+                  stroke="#585858" stroke-linejoin="round" stroke-width="2"/>
+        </marker>
+        <marker id="sid-098D0F10-34D4-4254-AAD4-0427315CBBE2start" refX="1" refY="5" markerUnits="userSpaceOnUse"
+                markerWidth="17" markerHeight="11" orient="auto">
+            undefined
+            <path id="sid-098D0F10-34D4-4254-AAD4-0427315CBBE2default" d="M 5 0 L 11 10" fill="white" stroke="#585858"
+                  stroke-width="1" display="none"/>
+        </marker>
+        <marker id="sid-098D0F10-34D4-4254-AAD4-0427315CBBE2end" refX="15" refY="6" markerUnits="userSpaceOnUse"
+                markerWidth="15" markerHeight="12" orient="auto">
+            <path id="sid-098D0F10-34D4-4254-AAD4-0427315CBBE2arrowhead" d="M 0 1 L 15 6 L 0 11z" fill="#585858"
+                  stroke="#585858" stroke-linejoin="round" stroke-width="2"/>
+        </marker>
+        <marker id="sid-C019A806-11A4-4486-833B-6C00BD85596Estart" refX="1" refY="5" markerUnits="userSpaceOnUse"
+                markerWidth="17" markerHeight="11" orient="auto">
+            undefined
+            <path id="sid-C019A806-11A4-4486-833B-6C00BD85596Edefault" d="M 5 0 L 11 10" fill="white" stroke="#585858"
+                  stroke-width="1" display="none"/>
+        </marker>
+        <marker id="sid-C019A806-11A4-4486-833B-6C00BD85596Eend" refX="15" refY="6" markerUnits="userSpaceOnUse"
+                markerWidth="15" markerHeight="12" orient="auto">
+            <path id="sid-C019A806-11A4-4486-833B-6C00BD85596Earrowhead" d="M 0 1 L 15 6 L 0 11z" fill="#585858"
+                  stroke="#585858" stroke-linejoin="round" stroke-width="2"/>
+        </marker>
+        <marker id="sid-FB4640D2-CE59-4815-AF0F-3A73B976776Dstart" refX="1" refY="5" markerUnits="userSpaceOnUse"
+                markerWidth="17" markerHeight="11" orient="auto">
+            undefined
+            <path id="sid-FB4640D2-CE59-4815-AF0F-3A73B976776Ddefault" d="M 5 0 L 11 10" fill="white" stroke="#585858"
+                  stroke-width="1" display="none"/>
+        </marker>
+        <marker id="sid-FB4640D2-CE59-4815-AF0F-3A73B976776Dend" refX="15" refY="6" markerUnits="userSpaceOnUse"
+                markerWidth="15" markerHeight="12" orient="auto">
+            <path id="sid-FB4640D2-CE59-4815-AF0F-3A73B976776Darrowhead" d="M 0 1 L 15 6 L 0 11z" fill="#585858"
+                  stroke="#585858" stroke-linejoin="round" stroke-width="2"/>
+        </marker>
+        <marker id="sid-B9673E03-C25C-4B78-85E6-F3E2C78ACDE3start" refX="1" refY="5" markerUnits="userSpaceOnUse"
+                markerWidth="17" markerHeight="11" orient="auto">
+            undefined
+            <path id="sid-B9673E03-C25C-4B78-85E6-F3E2C78ACDE3default" d="M 5 0 L 11 10" fill="white" stroke="#585858"
+                  stroke-width="1" display="none"/>
+        </marker>
+        <marker id="sid-B9673E03-C25C-4B78-85E6-F3E2C78ACDE3end" refX="15" refY="6" markerUnits="userSpaceOnUse"
+                markerWidth="15" markerHeight="12" orient="auto">
+            <path id="sid-B9673E03-C25C-4B78-85E6-F3E2C78ACDE3arrowhead" d="M 0 1 L 15 6 L 0 11z" fill="#585858"
+                  stroke="#585858" stroke-linejoin="round" stroke-width="2"/>
+        </marker>
+    </defs>
+    <svg id="underlay-container"/>
+    <g stroke="none" font-family="Verdana, sans-serif" font-size-adjust="none" font-style="normal" font-variant="normal"
+       font-weight="normal" line-heigth="normal" font-size="12">
+        <g class="stencils">
+            <g class="me"/>
+            <g class="children">
+                <g id="svg-deptleaderaudit">
+                    <g class="stencils" transform="translate(250, 220)">
+                        <g class="me">
+                            <g pointer-events="fill" oryx:minimumSize="50 40"
+                               id="sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881" title="用户活动">
+                                <rect id="sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881text_frame"
+                                      oryx:anchors="bottom top right left" x="1" y="1" width="99" height="54" rx="10"
+                                      ry="10" stroke="none" stroke-width="0" fill="none"/>
+                                <rect id="sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881bg_frame"
+                                      oryx:resize="vertical horizontal" x="0" y="0" width="105" height="55" rx="10"
+                                      ry="10" stroke="#bbbbbb" stroke-width="1" fill="#f9f9f9"/>
+                                <text font-size="12" id="sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881text_name" x="52"
+                                      y="27" oryx:align="middle center" oryx:fittoelem="text_frame" stroke="#373e48"
+                                      stroke-width="0pt" letter-spacing="-0.01px" transform="rotate(0 52 27)"
+                                      oryx:fontSize="12" text-anchor="middle">
+                                    <tspan x="52" y="27" dy="5">部门领导审批</tspan>
+                                </text>
+
+                                <g id="sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881userTask" transform="translate(3,3)">
+                                    <path oryx:anchors="top left" style="fill:#d1b575;stroke:none;"
+                                          d="m 1,17 16,0 0,-1.7778 -5.333332,-3.5555 0,-1.7778 c 1.244444,0 1.244444,-2.3111 1.244444,-2.3111 l 0,-3.0222 C 12.555557,0.8221 9.0000001,1.0001 9.0000001,1.0001 c 0,0 -3.5555556,-0.178 -3.9111111,3.5555 l 0,3.0222 c 0,0 0,2.3111 1.2444443,2.3111 l 0,1.7778 L 1,15.2222 1,17 17,17"
+                                          id="sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881_sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881_17"/>
+
+                                </g>
+
+                                <g id="sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881parallel" display="none">
+                                    <path oryx:anchors="bottom" fill="none" stroke="#bbbbbb"
+                                          d=" M48.50000000000001 45  v8  M52.50000000000001 45  v8  M56.50000000000001 45  v8 "
+                                          stroke-width="2"
+                                          id="sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881_sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881_18"/>
+                                </g>
+
+                                <g id="sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881sequential" display="none">
+                                    <path oryx:anchors="bottom" fill="none" stroke="#bbbbbb" stroke-width="2"
+                                          d=" M48.550000000000004 51  h10  M48.550000000000004 47  h10  M48.550000000000004 43  h10 "
+                                          id="sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881_sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881_19"/>
+                                </g>
+
+
+                                <g id="sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881compensation" display="none">
+                                    <path oryx:anchors="bottom" fill="none" stroke="#bbbbbb"
+                                          d=" M65.10000000000001 49  L69.10000000000001 45  L69.10000000000001 53  L65.10000000000001 49  L65.10000000000001 45  L61.10000000000001 49  L65.10000000000001 53  L65.10000000000001 49 "
+                                          stroke-width="1"
+                                          id="sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881_sid-B2A15A3B-06C0-4B0A-89EB-70751D3F2881_20"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets" transform="translate(250, 220)">
+                            <g pointer-events="all" display="none" transform="translate(-7, 5.75)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(-7, 19.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(-7, 33.25)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(18.25, 46)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(44.5, 46)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(70.75, 46)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(96, 5.75)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(96, 19.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(96, 33.25)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(18.25, -7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(44.5, -7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(70.75, -7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(44.5, 19.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="svg-exclusivegateway1">
+                    <g class="stencils" transform="translate(535, 227)">
+                        <g class="me">
+                            <g id="sid-F7B3ECAF-8989-4F45-BAB0-9D697C3E6C59" title="互斥网关">
+
+                                <path d=" M0 20.5  L20.5 0  L40 20.5  L20.5 40  z"
+                                      id="sid-F7B3ECAF-8989-4F45-BAB0-9D697C3E6C59bg_frame" fill="#ffffff"
+                                      stroke="#585858" style="stroke-width:1"/>
+                                <g id="sid-F7B3ECAF-8989-4F45-BAB0-9D697C3E6C59cross">
+                                    <path id="sid-F7B3ECAF-8989-4F45-BAB0-9D697C3E6C59crosspath" stroke="#585858"
+                                          fill="#585858" d=" M13.25 12.05  L17.25 12.05  L27.65 28.95  L23.75 28.95  z"
+                                          style="stroke-width:1"/>
+                                    <path id="sid-F7B3ECAF-8989-4F45-BAB0-9D697C3E6C59crosspath2" stroke="#585858"
+                                          fill="#585858" d=" M13.25 28.95  L23.75 12.05  L27.65 12.05  L17.25 28.95  z"
+                                          style="stroke-width:1"/>
+                                </g>
+
+                                <text id="sid-F7B3ECAF-8989-4F45-BAB0-9D697C3E6C59text_name" x="30" y="30"
+                                      oryx:align="left top" stroke-width="0pt" letter-spacing="-0.01px"
+                                      transform="rotate(0 30 30)" oryx:fontSize="12" text-anchor="start">
+                                    <tspan dy="12" x="30" y="30">Exclusive Gateway</tspan>
+                                </text>
+
+                            </g>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets" transform="translate(535, 227)">
+                            <g pointer-events="all" display="none" transform="translate(12.5, 12.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="svg-hraudit">
+                    <g class="stencils" transform="translate(620, 220)">
+                        <g class="me">
+                            <g pointer-events="fill" oryx:minimumSize="50 40"
+                               id="sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97" title="用户活动">
+                                <rect id="sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97text_frame"
+                                      oryx:anchors="bottom top right left" x="1" y="1" width="99" height="54" rx="10"
+                                      ry="10" stroke="none" stroke-width="0" fill="none"/>
+                                <rect id="sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97bg_frame"
+                                      oryx:resize="vertical horizontal" x="0" y="0" width="105" height="55" rx="10"
+                                      ry="10" stroke="#bbbbbb" stroke-width="1" fill="#f9f9f9"/>
+                                <text font-size="12" id="sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97text_name" x="52"
+                                      y="27" oryx:align="middle center" oryx:fittoelem="text_frame" stroke="#373e48"
+                                      stroke-width="0pt" letter-spacing="-0.01px" transform="rotate(0 52 27)"
+                                      oryx:fontSize="12" text-anchor="middle">
+                                    <tspan x="52" y="27" dy="5">人事审批</tspan>
+                                </text>
+
+                                <g id="sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97userTask" transform="translate(3,3)">
+                                    <path oryx:anchors="top left" style="fill:#d1b575;stroke:none;"
+                                          d="m 1,17 16,0 0,-1.7778 -5.333332,-3.5555 0,-1.7778 c 1.244444,0 1.244444,-2.3111 1.244444,-2.3111 l 0,-3.0222 C 12.555557,0.8221 9.0000001,1.0001 9.0000001,1.0001 c 0,0 -3.5555556,-0.178 -3.9111111,3.5555 l 0,3.0222 c 0,0 0,2.3111 1.2444443,2.3111 l 0,1.7778 L 1,15.2222 1,17 17,17"
+                                          id="sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97_sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97_17"/>
+
+                                </g>
+
+                                <g id="sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97parallel" display="none">
+                                    <path oryx:anchors="bottom" fill="none" stroke="#bbbbbb"
+                                          d=" M48.50000000000001 45  v8  M52.50000000000001 45  v8  M56.50000000000001 45  v8 "
+                                          stroke-width="2"
+                                          id="sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97_sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97_18"/>
+                                </g>
+
+                                <g id="sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97sequential" display="none">
+                                    <path oryx:anchors="bottom" fill="none" stroke="#bbbbbb" stroke-width="2"
+                                          d=" M48.550000000000004 51  h10  M48.550000000000004 47  h10  M48.550000000000004 43  h10 "
+                                          id="sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97_sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97_19"/>
+                                </g>
+
+
+                                <g id="sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97compensation" display="none">
+                                    <path oryx:anchors="bottom" fill="none" stroke="#bbbbbb"
+                                          d=" M65.10000000000001 49  L69.10000000000001 45  L69.10000000000001 53  L65.10000000000001 49  L65.10000000000001 45  L61.10000000000001 49  L65.10000000000001 53  L65.10000000000001 49 "
+                                          stroke-width="1"
+                                          id="sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97_sid-2D81775A-4EB6-4FA5-A0D1-7F1C50014F97_20"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets" transform="translate(620, 220)">
+                            <g pointer-events="all" display="none" transform="translate(-7, 5.75)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(-7, 19.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(-7, 33.25)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(18.25, 46)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(44.5, 46)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(70.75, 46)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(96, 5.75)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(96, 19.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(96, 33.25)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(18.25, -7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(44.5, -7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(70.75, -7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(44.5, 19.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="svg-modifyapply">
+                    <g class="stencils" transform="translate(503, 310)">
+                        <g class="me">
+                            <g pointer-events="fill" oryx:minimumSize="50 40"
+                               id="sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5" title="用户活动">
+                                <rect id="sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5text_frame"
+                                      oryx:anchors="bottom top right left" x="1" y="1" width="99" height="54" rx="10"
+                                      ry="10" stroke="none" stroke-width="0" fill="none"/>
+                                <rect id="sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5bg_frame"
+                                      oryx:resize="vertical horizontal" x="0" y="0" width="105" height="55" rx="10"
+                                      ry="10" stroke="#bbbbbb" stroke-width="1" fill="#f9f9f9"/>
+                                <text font-size="12" id="sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5text_name" x="52"
+                                      y="27" oryx:align="middle center" oryx:fittoelem="text_frame" stroke="#373e48"
+                                      stroke-width="0pt" letter-spacing="-0.01px" transform="rotate(0 52 27)"
+                                      oryx:fontSize="12" text-anchor="middle">
+                                    <tspan x="52" y="27" dy="5">调整申请</tspan>
+                                </text>
+
+                                <g id="sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5userTask" transform="translate(3,3)">
+                                    <path oryx:anchors="top left" style="fill:#d1b575;stroke:none;"
+                                          d="m 1,17 16,0 0,-1.7778 -5.333332,-3.5555 0,-1.7778 c 1.244444,0 1.244444,-2.3111 1.244444,-2.3111 l 0,-3.0222 C 12.555557,0.8221 9.0000001,1.0001 9.0000001,1.0001 c 0,0 -3.5555556,-0.178 -3.9111111,3.5555 l 0,3.0222 c 0,0 0,2.3111 1.2444443,2.3111 l 0,1.7778 L 1,15.2222 1,17 17,17"
+                                          id="sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5_sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5_17"/>
+
+                                </g>
+
+                                <g id="sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5parallel" display="none">
+                                    <path oryx:anchors="bottom" fill="none" stroke="#bbbbbb"
+                                          d=" M48.50000000000001 45  v8  M52.50000000000001 45  v8  M56.50000000000001 45  v8 "
+                                          stroke-width="2"
+                                          id="sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5_sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5_18"/>
+                                </g>
+
+                                <g id="sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5sequential" display="none">
+                                    <path oryx:anchors="bottom" fill="none" stroke="#bbbbbb" stroke-width="2"
+                                          d=" M48.550000000000004 51  h10  M48.550000000000004 47  h10  M48.550000000000004 43  h10 "
+                                          id="sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5_sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5_19"/>
+                                </g>
+
+
+                                <g id="sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5compensation" display="none">
+                                    <path oryx:anchors="bottom" fill="none" stroke="#bbbbbb"
+                                          d=" M65.10000000000001 49  L69.10000000000001 45  L69.10000000000001 53  L65.10000000000001 49  L65.10000000000001 45  L61.10000000000001 49  L65.10000000000001 53  L65.10000000000001 49 "
+                                          stroke-width="1"
+                                          id="sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5_sid-5772D265-D3EA-4CA1-A4B6-ECD841877FB5_20"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets" transform="translate(503, 310)">
+                            <g pointer-events="all" display="none" transform="translate(-7, 5.75)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(-7, 19.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(-7, 33.25)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(18.25, 46)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(44.5, 46)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(70.75, 46)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(96, 5.75)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(96, 19.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(96, 33.25)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(18.25, -7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(44.5, -7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(70.75, -7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(44.5, 19.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="svg-exclusivegateway2">
+                    <g class="stencils" transform="translate(535, 410)">
+                        <g class="me">
+                            <g id="sid-60FD114C-AEC3-4938-944D-6D6F265FADBE" title="互斥网关">
+
+                                <path d=" M0 20.5  L20.5 0  L40 20.5  L20.5 40  z"
+                                      id="sid-60FD114C-AEC3-4938-944D-6D6F265FADBEbg_frame" fill="#ffffff"
+                                      stroke="#585858" style="stroke-width:1"/>
+                                <g id="sid-60FD114C-AEC3-4938-944D-6D6F265FADBEcross">
+                                    <path id="sid-60FD114C-AEC3-4938-944D-6D6F265FADBEcrosspath" stroke="#585858"
+                                          fill="#585858" d=" M13.25 12.05  L17.25 12.05  L27.65 28.95  L23.75 28.95  z"
+                                          style="stroke-width:1"/>
+                                    <path id="sid-60FD114C-AEC3-4938-944D-6D6F265FADBEcrosspath2" stroke="#585858"
+                                          fill="#585858" d=" M13.25 28.95  L23.75 12.05  L27.65 12.05  L17.25 28.95  z"
+                                          style="stroke-width:1"/>
+                                </g>
+
+                                <text id="sid-60FD114C-AEC3-4938-944D-6D6F265FADBEtext_name" x="30" y="30"
+                                      oryx:align="left top" stroke-width="0pt" letter-spacing="-0.01px"
+                                      transform="rotate(0 30 30)" oryx:fontSize="12" text-anchor="start">
+                                    <tspan dy="12" x="30" y="30">Exclusive Gateway</tspan>
+                                </text>
+
+                            </g>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets" transform="translate(535, 410)">
+                            <g pointer-events="all" display="none" transform="translate(12.5, 12.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="svg-endevent1">
+                    <g class="stencils" transform="translate(890, 413)">
+                        <g class="me">
+                            <g pointer-events="fill" id="sid-B79B922A-5C19-45DD-BF05-22DF9E4A5E0C" title="结束任务">
+                                <circle id="sid-B79B922A-5C19-45DD-BF05-22DF9E4A5E0Cbg_frame" cx="14" cy="14" r="14"
+                                        stroke="#585858" fill="#ffffff" stroke-width="3"/>
+                                <text font-size="11" id="sid-B79B922A-5C19-45DD-BF05-22DF9E4A5E0Ctext_name" x="14"
+                                      y="30" oryx:align="top center" stroke="#373e48" stroke-width="0pt"
+                                      letter-spacing="-0.01px" transform="rotate(0 14 30)" oryx:fontSize="11"
+                                      text-anchor="middle">
+                                    <tspan dy="11" x="14" y="30">End</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets" transform="translate(890, 413)">
+                            <g pointer-events="all" display="none" transform="translate(6, 6)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="svg-exclusivegateway3">
+                    <g class="stencils" transform="translate(770, 228)">
+                        <g class="me">
+                            <g id="sid-81D3BBD8-7880-4F84-8F9F-98C717E6771E" title="互斥网关">
+
+                                <path d=" M0 20.5  L20.5 0  L40 20.5  L20.5 40  z"
+                                      id="sid-81D3BBD8-7880-4F84-8F9F-98C717E6771Ebg_frame" fill="#ffffff"
+                                      stroke="#585858" style="stroke-width:1"/>
+                                <g id="sid-81D3BBD8-7880-4F84-8F9F-98C717E6771Ecross">
+                                    <path id="sid-81D3BBD8-7880-4F84-8F9F-98C717E6771Ecrosspath" stroke="#585858"
+                                          fill="#585858" d=" M13.25 12.05  L17.25 12.05  L27.65 28.95  L23.75 28.95  z"
+                                          style="stroke-width:1"/>
+                                    <path id="sid-81D3BBD8-7880-4F84-8F9F-98C717E6771Ecrosspath2" stroke="#585858"
+                                          fill="#585858" d=" M13.25 28.95  L23.75 12.05  L27.65 12.05  L17.25 28.95  z"
+                                          style="stroke-width:1"/>
+                                </g>
+
+                                <text id="sid-81D3BBD8-7880-4F84-8F9F-98C717E6771Etext_name" x="30" y="30"
+                                      oryx:align="left top" stroke-width="0pt" letter-spacing="-0.01px"
+                                      transform="rotate(0 30 30)" oryx:fontSize="12" text-anchor="start">
+                                    <tspan dy="12" x="30" y="30">Exclusive Gateway</tspan>
+                                </text>
+
+                            </g>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets" transform="translate(770, 228)">
+                            <g pointer-events="all" display="none" transform="translate(12.5, 12.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="svg-reportback">
+                    <g class="stencils" transform="translate(855, 221)">
+                        <g class="me">
+                            <g pointer-events="fill" oryx:minimumSize="50 40"
+                               id="sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2" title="用户活动">
+                                <rect id="sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2text_frame"
+                                      oryx:anchors="bottom top right left" x="1" y="1" width="99" height="54" rx="10"
+                                      ry="10" stroke="none" stroke-width="0" fill="none"/>
+                                <rect id="sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2bg_frame"
+                                      oryx:resize="vertical horizontal" x="0" y="0" width="105" height="55" rx="10"
+                                      ry="10" stroke="#bbbbbb" stroke-width="1" fill="#f9f9f9"/>
+                                <text font-size="12" id="sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2text_name" x="52"
+                                      y="27" oryx:align="middle center" oryx:fittoelem="text_frame" stroke="#373e48"
+                                      stroke-width="0pt" letter-spacing="-0.01px" transform="rotate(0 52 27)"
+                                      oryx:fontSize="12" text-anchor="middle">
+                                    <tspan x="52" y="27" dy="5">销假</tspan>
+                                </text>
+
+                                <g id="sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2userTask" transform="translate(3,3)">
+                                    <path oryx:anchors="top left" style="fill:#d1b575;stroke:none;"
+                                          d="m 1,17 16,0 0,-1.7778 -5.333332,-3.5555 0,-1.7778 c 1.244444,0 1.244444,-2.3111 1.244444,-2.3111 l 0,-3.0222 C 12.555557,0.8221 9.0000001,1.0001 9.0000001,1.0001 c 0,0 -3.5555556,-0.178 -3.9111111,3.5555 l 0,3.0222 c 0,0 0,2.3111 1.2444443,2.3111 l 0,1.7778 L 1,15.2222 1,17 17,17"
+                                          id="sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2_sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2_17"/>
+
+                                </g>
+
+                                <g id="sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2parallel" display="none">
+                                    <path oryx:anchors="bottom" fill="none" stroke="#bbbbbb"
+                                          d=" M48.50000000000001 45  v8  M52.50000000000001 45  v8  M56.50000000000001 45  v8 "
+                                          stroke-width="2"
+                                          id="sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2_sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2_18"/>
+                                </g>
+
+                                <g id="sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2sequential" display="none">
+                                    <path oryx:anchors="bottom" fill="none" stroke="#bbbbbb" stroke-width="2"
+                                          d=" M48.550000000000004 51  h10  M48.550000000000004 47  h10  M48.550000000000004 43  h10 "
+                                          id="sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2_sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2_19"/>
+                                </g>
+
+
+                                <g id="sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2compensation" display="none">
+                                    <path oryx:anchors="bottom" fill="none" stroke="#bbbbbb"
+                                          d=" M65.10000000000001 49  L69.10000000000001 45  L69.10000000000001 53  L65.10000000000001 49  L65.10000000000001 45  L61.10000000000001 49  L65.10000000000001 53  L65.10000000000001 49 "
+                                          stroke-width="1"
+                                          id="sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2_sid-ABE58A8F-4CD9-4A03-8378-6B15BE7C59C2_20"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets" transform="translate(855, 221)">
+                            <g pointer-events="all" display="none" transform="translate(-7, 5.75)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(-7, 19.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(-7, 33.25)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(18.25, 46)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(44.5, 46)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(70.75, 46)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(96, 5.75)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(96, 19.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(96, 33.25)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(18.25, -7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(44.5, -7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(70.75, -7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                            <g pointer-events="all" display="none" transform="translate(44.5, 19.5)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="svg-startevent1">
+                    <g class="stencils" transform="translate(140, 230)">
+                        <g class="me">
+                            <g pointer-events="fill" id="sid-82326A3A-F87D-4505-BEE4-DC139ABD4B43" title="事件">
+                                <circle id="sid-82326A3A-F87D-4505-BEE4-DC139ABD4B43bg_frame" cx="15" cy="15" r="15"
+                                        stroke="#585858" fill="#ffffff" stroke-width="1"/>
+                                <text font-size="11" id="sid-82326A3A-F87D-4505-BEE4-DC139ABD4B43text_name" x="15"
+                                      y="32" oryx:align="top center" stroke="#373e48" stroke-width="0pt"
+                                      letter-spacing="-0.01px" transform="rotate(0 15 32)" oryx:fontSize="11"
+                                      text-anchor="middle">
+                                    <tspan dy="11" x="15" y="32">Start</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets" transform="translate(140, 230)">
+                            <g pointer-events="all" display="none" transform="translate(7, 7)">
+                                <circle cx="8" cy="8" r="4" stroke="none" fill="red" fill-opacity="0.3"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g class="edge">
+                <g id="svg-flow3">
+                    <g class="stencils">
+                        <g class="me">
+                            <g pointer-events="painted">
+                                <path id="sid-3D43535E-A6D5-4799-A863-3C4D319765CE_1"
+                                      d="M575.2773346962524 247.08628653062235L619.1757903037476 247.27308846937765 "
+                                      stroke="#585858" fill="none" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      marker-start="url(#sid-3D43535E-A6D5-4799-A863-3C4D319765CEstart)"
+                                      marker-end="url(#sid-3D43535E-A6D5-4799-A863-3C4D319765CEend)"/>
+                            </g>
+                            <text id="sid-3D43535E-A6D5-4799-A863-3C4D319765CEtext_name" x="583" y="239"
+                                  oryx:edgePosition="startTop" stroke-width="0pt" letter-spacing="-0.01px"
+                                  transform="rotate(0.24381035610412027 575 247)" oryx:fontSize="12"
+                                  text-anchor="start">
+                                <tspan dy="0" x="583" y="239">同意</tspan>
+                            </text>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets"/>
+                    </g>
+                </g>
+                <g id="svg-flow4">
+                    <g class="stencils">
+                        <g class="me">
+                            <g pointer-events="painted">
+                                <path id="sid-67149E83-5AE8-4CCC-8F38-DB2C7786B237_1"
+                                      d="M555.1109935275597 267.0898284883L555.3460377224403 309.6328277617 "
+                                      stroke="#585858" fill="none" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      marker-start="url(#sid-67149E83-5AE8-4CCC-8F38-DB2C7786B237start)"
+                                      marker-end="url(#sid-67149E83-5AE8-4CCC-8F38-DB2C7786B237end)"/>
+                            </g>
+                            <text id="sid-67149E83-5AE8-4CCC-8F38-DB2C7786B237text_name" x="563" y="259"
+                                  oryx:edgePosition="startTop" stroke-width="0pt" letter-spacing="-0.01px"
+                                  transform="rotate(89.68345195272695 555 267)" oryx:fontSize="12" text-anchor="start">
+                                <tspan dy="0" x="563" y="259">拒绝</tspan>
+                            </text>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets"/>
+                    </g>
+                </g>
+                <g id="svg-flow6">
+                    <g class="stencils">
+                        <g class="me">
+                            <g pointer-events="painted">
+                                <path id="sid-1A850680-51E4-4A2B-A2DF-51D86BE498E7_1"
+                                      d="M355.77538866441364 247.39450418086255L535.2597675855864 247.03908956913745 "
+                                      stroke="#585858" fill="none" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      marker-start="url(#sid-1A850680-51E4-4A2B-A2DF-51D86BE498E7start)"
+                                      marker-end="url(#sid-1A850680-51E4-4A2B-A2DF-51D86BE498E7end)"/>
+                            </g>
+                            <text id="sid-1A850680-51E4-4A2B-A2DF-51D86BE498E7text_name" x="363" y="239"
+                                  oryx:edgePosition="startTop" stroke-width="0pt" letter-spacing="-0.01px"
+                                  transform="rotate(359.88654315916006 355 247)" oryx:fontSize="12"
+                                  text-anchor="start"/>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets"/>
+                    </g>
+                </g>
+                <g id="svg-flow7">
+                    <g class="stencils">
+                        <g class="me">
+                            <g pointer-events="painted">
+                                <path id="sid-8302A074-2BDC-4C35-B346-34BCBC5FCD56_1"
+                                      d="M555.3461571735616 365.96092289111635L555.1069678264384 410.21095210888365 "
+                                      stroke="#585858" fill="none" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      marker-start="url(#sid-8302A074-2BDC-4C35-B346-34BCBC5FCD56start)"
+                                      marker-end="url(#sid-8302A074-2BDC-4C35-B346-34BCBC5FCD56end)"/>
+                            </g>
+                            <text id="sid-8302A074-2BDC-4C35-B346-34BCBC5FCD56text_name" x="547" y="357"
+                                  oryx:edgePosition="startTop" stroke-width="0pt" letter-spacing="-0.01px"
+                                  transform="rotate(-89.69029610004162 555 365)" oryx:fontSize="12" text-anchor="end"/>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets"/>
+                    </g>
+                </g>
+                <g id="svg-flow8">
+                    <g class="stencils">
+                        <g class="me">
+                            <g pointer-events="painted">
+                                <path id="sid-D3BF2FC5-85E7-4543-B0DD-011A5D27A7C2_1"
+                                      d="M535.22266406131 429.9218287117048L302 429 L302.42302643951655 275.4414024555024 "
+                                      stroke="#585858" fill="none" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      marker-start="url(#sid-D3BF2FC5-85E7-4543-B0DD-011A5D27A7C2start)"
+                                      marker-end="url(#sid-D3BF2FC5-85E7-4543-B0DD-011A5D27A7C2end)"/>
+                            </g>
+                            <text id="sid-D3BF2FC5-85E7-4543-B0DD-011A5D27A7C2text_name" x="527" y="421"
+                                  oryx:edgePosition="startTop" stroke-width="0pt" letter-spacing="-0.01px"
+                                  transform="rotate(0.22646435234119622 535 429)" oryx:fontSize="12" text-anchor="end">
+                                <tspan dy="0" x="527" y="421">重新申请</tspan>
+                            </text>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets"/>
+                    </g>
+                </g>
+                <g id="svg-flow9">
+                    <g class="stencils">
+                        <g class="me">
+                            <g pointer-events="painted">
+                                <path id="sid-5E875358-BAD8-4867-BE29-731445FA8FB7_1"
+                                      d="M575.0859005565378 429.8273418290269L889.3672244434622 427.1257831709731 "
+                                      stroke="#585858" fill="none" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      marker-start="url(#sid-5E875358-BAD8-4867-BE29-731445FA8FB7start)"
+                                      marker-end="url(#sid-5E875358-BAD8-4867-BE29-731445FA8FB7end)"/>
+                            </g>
+                            <text id="sid-5E875358-BAD8-4867-BE29-731445FA8FB7text_name" x="583" y="421"
+                                  oryx:edgePosition="startTop" stroke-width="0pt" letter-spacing="-0.01px"
+                                  transform="rotate(359.50749826623667 575 429)" oryx:fontSize="12" text-anchor="start">
+                                <tspan dy="0" x="583" y="421">结束流程</tspan>
+                            </text>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets"/>
+                    </g>
+                </g>
+                <g id="svg-flow10">
+                    <g class="stencils">
+                        <g class="me">
+                            <g pointer-events="painted">
+                                <path id="sid-7DCD611A-4DBC-43CC-8B40-8D4001154DB6_1"
+                                      d="M725.8242096962524 247.72691153062235L769.7226653037476 247.91371346937765 "
+                                      stroke="#585858" fill="none" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      marker-start="url(#sid-7DCD611A-4DBC-43CC-8B40-8D4001154DB6start)"
+                                      marker-end="url(#sid-7DCD611A-4DBC-43CC-8B40-8D4001154DB6end)"/>
+                            </g>
+                            <text id="sid-7DCD611A-4DBC-43CC-8B40-8D4001154DB6text_name" x="733" y="239"
+                                  oryx:edgePosition="startTop" stroke-width="0pt" letter-spacing="-0.01px"
+                                  transform="rotate(0.24381035610412027 725 247)" oryx:fontSize="12"
+                                  text-anchor="start"/>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets"/>
+                    </g>
+                </g>
+                <g id="svg-flow11">
+                    <g class="stencils">
+                        <g class="me">
+                            <g pointer-events="painted">
+                                <path id="sid-098D0F10-34D4-4254-AAD4-0427315CBBE2_1"
+                                      d="M789.7778272541277 267.7733743826332L789 337 L608.4902320823659 337.38653055228616 "
+                                      stroke="#585858" fill="none" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      marker-start="url(#sid-098D0F10-34D4-4254-AAD4-0427315CBBE2start)"
+                                      marker-end="url(#sid-098D0F10-34D4-4254-AAD4-0427315CBBE2end)"/>
+                            </g>
+                            <text id="sid-098D0F10-34D4-4254-AAD4-0427315CBBE2text_name" x="781" y="259"
+                                  oryx:edgePosition="startTop" stroke-width="0pt" letter-spacing="-0.01px"
+                                  transform="rotate(-89.35625428582466 789 267)" oryx:fontSize="12" text-anchor="end">
+                                <tspan dy="0" x="781" y="259">拒绝</tspan>
+                            </text>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets"/>
+                    </g>
+                </g>
+                <g id="svg-flow12">
+                    <g class="stencils">
+                        <g class="me">
+                            <g pointer-events="painted">
+                                <path id="sid-C019A806-11A4-4486-833B-6C00BD85596E_1"
+                                      d="M810.2773346962524 248.08628653062235L854.1757903037476 248.27308846937765 "
+                                      stroke="#585858" fill="none" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      marker-start="url(#sid-C019A806-11A4-4486-833B-6C00BD85596Estart)"
+                                      marker-end="url(#sid-C019A806-11A4-4486-833B-6C00BD85596Eend)"/>
+                            </g>
+                            <text id="sid-C019A806-11A4-4486-833B-6C00BD85596Etext_name" x="818" y="240"
+                                  oryx:edgePosition="startTop" stroke-width="0pt" letter-spacing="-0.01px"
+                                  transform="rotate(0.24381035610412027 810 248)" oryx:fontSize="12"
+                                  text-anchor="start">
+                                <tspan dy="0" x="818" y="240">同意</tspan>
+                            </text>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets"/>
+                    </g>
+                </g>
+                <g id="svg-flow13">
+                    <g class="stencils">
+                        <g class="me">
+                            <g pointer-events="painted">
+                                <path id="sid-FB4640D2-CE59-4815-AF0F-3A73B976776D_1"
+                                      d="M906.9471928000655 276.6931671966567L904.2930415749345 412.0548796783433 "
+                                      stroke="#585858" fill="none" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      marker-start="url(#sid-FB4640D2-CE59-4815-AF0F-3A73B976776Dstart)"
+                                      marker-end="url(#sid-FB4640D2-CE59-4815-AF0F-3A73B976776Dend)"/>
+                            </g>
+                            <text id="sid-FB4640D2-CE59-4815-AF0F-3A73B976776Dtext_name" x="898" y="268"
+                                  oryx:edgePosition="startTop" stroke-width="0pt" letter-spacing="-0.01px"
+                                  transform="rotate(-88.87669728592505 906 276)" oryx:fontSize="12" text-anchor="end"/>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets"/>
+                    </g>
+                </g>
+                <g id="svg-flow14">
+                    <g class="stencils">
+                        <g class="me">
+                            <g pointer-events="painted">
+                                <path id="sid-B9673E03-C25C-4B78-85E6-F3E2C78ACDE3_1"
+                                      d="M170.98032514405398 245.2708529685433L249.64467485594602 246.6041470314567 "
+                                      stroke="#585858" fill="none" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      marker-start="url(#sid-B9673E03-C25C-4B78-85E6-F3E2C78ACDE3start)"
+                                      marker-end="url(#sid-B9673E03-C25C-4B78-85E6-F3E2C78ACDE3end)"/>
+                            </g>
+                            <text id="sid-B9673E03-C25C-4B78-85E6-F3E2C78ACDE3text_name" x="178" y="237"
+                                  oryx:edgePosition="startTop" stroke-width="0pt" letter-spacing="-0.01px"
+                                  transform="rotate(0.9710219310791786 170 245)" oryx:fontSize="12"
+                                  text-anchor="start"/>
+                        </g>
+                        <g class="children" style="overflow:hidden"/>
+                        <g class="edge"/>
+                    </g>
+                    <g class="controls">
+                        <g class="dockers"/>
+                        <g class="magnets"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g class="svgcontainer">
+            <g display="none">
+                <rect x="0" y="0" stroke-width="1" stroke="#777777" fill="none" stroke-dasharray="2,2"
+                      pointer-events="none"/>
+            </g>
+            <g display="none">
+                <path stroke-width="1" stroke="silver" fill="none" stroke-dasharray="5,5" pointer-events="none"/>
+            </g>
+            <g display="none">
+                <path stroke-width="1" stroke="silver" fill="none" stroke-dasharray="5,5" pointer-events="none"/>
+            </g>
+            <g/>
+        </g>
+    </g>
+</svg>

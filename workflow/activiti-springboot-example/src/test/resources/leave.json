@@ -1,0 +1,520 @@
+{
+  "resourceId": "027908f7-d70c-11ee-8587-92b27a8e8076",
+  "properties": {
+    "process_id": "leave",
+    "name": "请假申请流程",
+    "documentation": "",
+    "process_author": "",
+    "process_version": "",
+    "process_namespace": "http://www.activiti.org/test",
+    "executionlisteners": "{\"executionListeners\":\"[]\"}",
+    "eventlisteners": "{\"eventListeners\":\"[]\"}",
+    "signaldefinitions": "\"[]\"",
+    "messagedefinitions": "\"[]\"",
+    "messages": []
+  },
+  "stencil": { "id": "BPMNDiagram" },
+  "childShapes": [
+    {
+      "resourceId": "deptleaderaudit",
+      "properties": {
+        "overrideid": "deptleaderaudit",
+        "name": "部门领导审批",
+        "documentation": "",
+        "asynchronousdefinition": false,
+        "exclusivedefinition": true,
+        "executionlisteners": { "executionListeners": [] },
+        "multiinstance_type": "None",
+        "multiinstance_cardinality": "",
+        "multiinstance_collection": "",
+        "multiinstance_variable": "",
+        "multiinstance_condition": "",
+        "isforcompensation": "false",
+        "usertaskassignment": {
+          "assignment": {
+            "type": "static",
+            "assignee": "${deptleader}",
+            "candidateGroups": [{ "value": "部门经理" }]
+          }
+        },
+        "formkeydefinition": "leaveapply/deptleadercheck",
+        "duedatedefinition": "",
+        "prioritydefinition": "",
+        "formproperties": "",
+        "tasklisteners": { "taskListeners": [] }
+      },
+      "stencil": { "id": "UserTask" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "flow6" }],
+      "bounds": {
+        "lowerRight": { "x": 355, "y": 275 },
+        "upperLeft": { "x": 250, "y": 220 }
+      },
+      "dockers": []
+    },
+    {
+      "resourceId": "exclusivegateway1",
+      "properties": {
+        "overrideid": "exclusivegateway1",
+        "name": "Exclusive Gateway",
+        "documentation": "",
+        "asynchronousdefinition": "false",
+        "exclusivedefinition": "false",
+        "sequencefloworder": "",
+        "executionlisteners": { "executionListeners": [] }
+      },
+      "stencil": { "id": "ExclusiveGateway" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "flow3" }, { "resourceId": "flow4" }],
+      "bounds": {
+        "lowerRight": { "x": 575, "y": 267 },
+        "upperLeft": { "x": 535, "y": 227 }
+      },
+      "dockers": []
+    },
+    {
+      "resourceId": "hraudit",
+      "properties": {
+        "overrideid": "hraudit",
+        "name": "人事审批",
+        "documentation": "",
+        "asynchronousdefinition": false,
+        "exclusivedefinition": true,
+        "executionlisteners": { "executionListeners": [] },
+        "multiinstance_type": "None",
+        "multiinstance_cardinality": "",
+        "multiinstance_collection": "",
+        "multiinstance_variable": "",
+        "multiinstance_condition": "",
+        "isforcompensation": "false",
+        "usertaskassignment": {
+          "assignment": {
+            "type": "static",
+            "assignee": "${hr}",
+            "candidateGroups": [{ "value": "人事" }]
+          }
+        },
+        "formkeydefinition": "leaveapply/hrcheck",
+        "duedatedefinition": "",
+        "prioritydefinition": "",
+        "formproperties": "",
+        "tasklisteners": { "taskListeners": [] }
+      },
+      "stencil": { "id": "UserTask" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "flow10" }],
+      "bounds": {
+        "lowerRight": { "x": 725, "y": 275 },
+        "upperLeft": { "x": 620, "y": 220 }
+      },
+      "dockers": []
+    },
+    {
+      "resourceId": "flow3",
+      "properties": {
+        "overrideid": "flow3",
+        "name": "同意",
+        "documentation": "",
+        "conditionsequenceflow": "${deptleaderapprove=='true'}",
+        "executionlisteners": "",
+        "defaultflow": "false"
+      },
+      "stencil": { "id": "SequenceFlow" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "hraudit" }],
+      "bounds": {
+        "lowerRight": { "x": 619.1757903037476, "y": 247.27308846937765 },
+        "upperLeft": { "x": 575.2773346962524, "y": 247.08628653062235 }
+      },
+      "dockers": [
+        { "x": 20, "y": 20 },
+        { "x": 52.5, "y": 27.5 }
+      ],
+      "target": { "resourceId": "hraudit" }
+    },
+    {
+      "resourceId": "modifyapply",
+      "properties": {
+        "overrideid": "modifyapply",
+        "name": "调整申请",
+        "documentation": "",
+        "asynchronousdefinition": false,
+        "exclusivedefinition": true,
+        "executionlisteners": { "executionListeners": [] },
+        "multiinstance_type": "None",
+        "multiinstance_cardinality": "",
+        "multiinstance_collection": "",
+        "multiinstance_variable": "",
+        "multiinstance_condition": "",
+        "isforcompensation": "false",
+        "usertaskassignment": {
+          "assignment": { "type": "static", "assignee": "${applyuserid}" }
+        },
+        "formkeydefinition": "leaveapply/modifyapply",
+        "duedatedefinition": "",
+        "prioritydefinition": "",
+        "formproperties": "",
+        "tasklisteners": { "taskListeners": [] }
+      },
+      "stencil": { "id": "UserTask" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "flow7" }],
+      "bounds": {
+        "lowerRight": { "x": 608, "y": 365 },
+        "upperLeft": { "x": 503, "y": 310 }
+      },
+      "dockers": []
+    },
+    {
+      "resourceId": "flow4",
+      "properties": {
+        "overrideid": "flow4",
+        "name": "拒绝",
+        "documentation": "",
+        "conditionsequenceflow": "${deptleaderapprove=='false'}",
+        "executionlisteners": "",
+        "defaultflow": "false"
+      },
+      "stencil": { "id": "SequenceFlow" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "modifyapply" }],
+      "bounds": {
+        "lowerRight": { "x": 555.3460377224403, "y": 309.6328277617 },
+        "upperLeft": { "x": 555.1109935275597, "y": 267.0898284883 }
+      },
+      "dockers": [
+        { "x": 20, "y": 20 },
+        { "x": 52.5, "y": 27.5 }
+      ],
+      "target": { "resourceId": "modifyapply" }
+    },
+    {
+      "resourceId": "flow6",
+      "properties": {
+        "overrideid": "flow6",
+        "name": "",
+        "documentation": "",
+        "conditionsequenceflow": "",
+        "executionlisteners": "",
+        "defaultflow": "false"
+      },
+      "stencil": { "id": "SequenceFlow" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "exclusivegateway1" }],
+      "bounds": {
+        "lowerRight": { "x": 535.2597675855864, "y": 247.39450418086255 },
+        "upperLeft": { "x": 355.77538866441364, "y": 247.03908956913745 }
+      },
+      "dockers": [
+        { "x": 52.5, "y": 27.5 },
+        { "x": 20, "y": 20 }
+      ],
+      "target": { "resourceId": "exclusivegateway1" }
+    },
+    {
+      "resourceId": "exclusivegateway2",
+      "properties": {
+        "overrideid": "exclusivegateway2",
+        "name": "Exclusive Gateway",
+        "documentation": "",
+        "asynchronousdefinition": "false",
+        "exclusivedefinition": "false",
+        "sequencefloworder": "",
+        "executionlisteners": { "executionListeners": [] }
+      },
+      "stencil": { "id": "ExclusiveGateway" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "flow8" }, { "resourceId": "flow9" }],
+      "bounds": {
+        "lowerRight": { "x": 575, "y": 450 },
+        "upperLeft": { "x": 535, "y": 410 }
+      },
+      "dockers": []
+    },
+    {
+      "resourceId": "flow7",
+      "properties": {
+        "overrideid": "flow7",
+        "name": "",
+        "documentation": "",
+        "conditionsequenceflow": "",
+        "executionlisteners": "",
+        "defaultflow": "false"
+      },
+      "stencil": { "id": "SequenceFlow" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "exclusivegateway2" }],
+      "bounds": {
+        "lowerRight": { "x": 555.3461571735616, "y": 410.21095210888365 },
+        "upperLeft": { "x": 555.1069678264384, "y": 365.96092289111635 }
+      },
+      "dockers": [
+        { "x": 52.5, "y": 27.5 },
+        { "x": 20, "y": 20 }
+      ],
+      "target": { "resourceId": "exclusivegateway2" }
+    },
+    {
+      "resourceId": "flow8",
+      "properties": {
+        "overrideid": "flow8",
+        "name": "重新申请",
+        "documentation": "",
+        "conditionsequenceflow": "${reapply=='true'}",
+        "executionlisteners": "",
+        "defaultflow": "false"
+      },
+      "stencil": { "id": "SequenceFlow" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "deptleaderaudit" }],
+      "bounds": {
+        "lowerRight": { "x": 535.22266406131, "y": 429.9218287117048 },
+        "upperLeft": { "x": 302, "y": 275.4414024555024 }
+      },
+      "dockers": [
+        { "x": 20, "y": 20 },
+        { "x": 302, "y": 429 },
+        { "x": 52.5, "y": 27.5 }
+      ],
+      "target": { "resourceId": "deptleaderaudit" }
+    },
+    {
+      "resourceId": "endevent1",
+      "properties": {
+        "overrideid": "endevent1",
+        "name": "End",
+        "documentation": "",
+        "executionlisteners": { "executionListeners": [] }
+      },
+      "stencil": { "id": "EndNoneEvent" },
+      "childShapes": [],
+      "outgoing": [],
+      "bounds": {
+        "lowerRight": { "x": 918, "y": 441 },
+        "upperLeft": { "x": 890, "y": 413 }
+      },
+      "dockers": []
+    },
+    {
+      "resourceId": "flow9",
+      "properties": {
+        "overrideid": "flow9",
+        "name": "结束流程",
+        "documentation": "",
+        "conditionsequenceflow": "${reapply=='false'}",
+        "executionlisteners": "",
+        "defaultflow": "false"
+      },
+      "stencil": { "id": "SequenceFlow" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "endevent1" }],
+      "bounds": {
+        "lowerRight": { "x": 889.3672244434622, "y": 429.8273418290269 },
+        "upperLeft": { "x": 575.0859005565378, "y": 427.1257831709731 }
+      },
+      "dockers": [
+        { "x": 20, "y": 20 },
+        { "x": 14, "y": 14 }
+      ],
+      "target": { "resourceId": "endevent1" }
+    },
+    {
+      "resourceId": "exclusivegateway3",
+      "properties": {
+        "overrideid": "exclusivegateway3",
+        "name": "Exclusive Gateway",
+        "documentation": "",
+        "asynchronousdefinition": "false",
+        "exclusivedefinition": "false",
+        "sequencefloworder": "",
+        "executionlisteners": { "executionListeners": [] }
+      },
+      "stencil": { "id": "ExclusiveGateway" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "flow11" }, { "resourceId": "flow12" }],
+      "bounds": {
+        "lowerRight": { "x": 810, "y": 268 },
+        "upperLeft": { "x": 770, "y": 228 }
+      },
+      "dockers": []
+    },
+    {
+      "resourceId": "flow10",
+      "properties": {
+        "overrideid": "flow10",
+        "name": "",
+        "documentation": "",
+        "conditionsequenceflow": "",
+        "executionlisteners": "",
+        "defaultflow": "false"
+      },
+      "stencil": { "id": "SequenceFlow" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "exclusivegateway3" }],
+      "bounds": {
+        "lowerRight": { "x": 769.7226653037476, "y": 247.91371346937765 },
+        "upperLeft": { "x": 725.8242096962524, "y": 247.72691153062235 }
+      },
+      "dockers": [
+        { "x": 52.5, "y": 27.5 },
+        { "x": 20, "y": 20 }
+      ],
+      "target": { "resourceId": "exclusivegateway3" }
+    },
+    {
+      "resourceId": "flow11",
+      "properties": {
+        "overrideid": "flow11",
+        "name": "拒绝",
+        "documentation": "",
+        "conditionsequenceflow": "${hrapprove=='false'}",
+        "executionlisteners": "",
+        "defaultflow": "false"
+      },
+      "stencil": { "id": "SequenceFlow" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "modifyapply" }],
+      "bounds": {
+        "lowerRight": { "x": 789.7778272541277, "y": 337.38653055228616 },
+        "upperLeft": { "x": 608.4902320823659, "y": 267.7733743826332 }
+      },
+      "dockers": [
+        { "x": 20, "y": 20 },
+        { "x": 789, "y": 337 },
+        { "x": 52.5, "y": 27.5 }
+      ],
+      "target": { "resourceId": "modifyapply" }
+    },
+    {
+      "resourceId": "reportback",
+      "properties": {
+        "overrideid": "reportback",
+        "name": "销假",
+        "documentation": "",
+        "asynchronousdefinition": false,
+        "exclusivedefinition": true,
+        "executionlisteners": { "executionListeners": [] },
+        "multiinstance_type": "None",
+        "multiinstance_cardinality": "",
+        "multiinstance_collection": "",
+        "multiinstance_variable": "",
+        "multiinstance_condition": "",
+        "isforcompensation": "false",
+        "usertaskassignment": {
+          "assignment": { "type": "static", "assignee": "${applyuserid}" }
+        },
+        "formkeydefinition": "leaveapply/destroyapply",
+        "duedatedefinition": "",
+        "prioritydefinition": "",
+        "formproperties": "",
+        "tasklisteners": { "taskListeners": [] }
+      },
+      "stencil": { "id": "UserTask" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "flow13" }],
+      "bounds": {
+        "lowerRight": { "x": 960, "y": 276 },
+        "upperLeft": { "x": 855, "y": 221 }
+      },
+      "dockers": []
+    },
+    {
+      "resourceId": "flow12",
+      "properties": {
+        "overrideid": "flow12",
+        "name": "同意",
+        "documentation": "",
+        "conditionsequenceflow": "${hrapprove=='true'}",
+        "executionlisteners": "",
+        "defaultflow": "false"
+      },
+      "stencil": { "id": "SequenceFlow" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "reportback" }],
+      "bounds": {
+        "lowerRight": { "x": 854.1757903037476, "y": 248.27308846937765 },
+        "upperLeft": { "x": 810.2773346962524, "y": 248.08628653062235 }
+      },
+      "dockers": [
+        { "x": 20, "y": 20 },
+        { "x": 52.5, "y": 27.5 }
+      ],
+      "target": { "resourceId": "reportback" }
+    },
+    {
+      "resourceId": "flow13",
+      "properties": {
+        "overrideid": "flow13",
+        "name": "",
+        "documentation": "",
+        "conditionsequenceflow": "",
+        "executionlisteners": "",
+        "defaultflow": "false"
+      },
+      "stencil": { "id": "SequenceFlow" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "endevent1" }],
+      "bounds": {
+        "lowerRight": { "x": 906.9471928000655, "y": 412.0548796783433 },
+        "upperLeft": { "x": 904.2930415749345, "y": 276.6931671966567 }
+      },
+      "dockers": [
+        { "x": 52.5, "y": 27.5 },
+        { "x": 14, "y": 14 }
+      ],
+      "target": { "resourceId": "endevent1" }
+    },
+    {
+      "resourceId": "startevent1",
+      "properties": {
+        "overrideid": "startevent1",
+        "name": "Start",
+        "documentation": "",
+        "executionlisteners": { "executionListeners": [] },
+        "initiator": "applyuserid",
+        "formkeydefinition": "",
+        "formproperties": ""
+      },
+      "stencil": { "id": "StartNoneEvent" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "flow14" }],
+      "bounds": {
+        "lowerRight": { "x": 170, "y": 260 },
+        "upperLeft": { "x": 140, "y": 230 }
+      },
+      "dockers": []
+    },
+    {
+      "resourceId": "flow14",
+      "properties": {
+        "overrideid": "flow14",
+        "name": "",
+        "documentation": "",
+        "conditionsequenceflow": "",
+        "executionlisteners": "",
+        "defaultflow": "false"
+      },
+      "stencil": { "id": "SequenceFlow" },
+      "childShapes": [],
+      "outgoing": [{ "resourceId": "deptleaderaudit" }],
+      "bounds": {
+        "lowerRight": { "x": 249.64467485594602, "y": 246.6041470314567 },
+        "upperLeft": { "x": 170.98032514405398, "y": 245.2708529685433 }
+      },
+      "dockers": [
+        { "x": 15, "y": 15 },
+        { "x": 52.5, "y": 27.5 }
+      ],
+      "target": { "resourceId": "deptleaderaudit" }
+    }
+  ],
+  "bounds": {
+    "lowerRight": { "x": 1200, "y": 1050 },
+    "upperLeft": { "x": 0, "y": 0 }
+  },
+  "stencilset": {
+    "url": "stencilsets/bpmn2.0/bpmn2.0.json",
+    "namespace": "http://b3mn.org/stencilset/bpmn2.0#"
+  },
+  "ssextensions": []
+}

@@ -79,8 +79,13 @@ spring:
   # Activiti工作流引擎
   activiti:
     database-schema-update: true
+#    database-schema-update: create-drop
     db-history-used: true
     history-level: full
     check-process-definitions: false
     deployment-mode: never-fail
     process-definition-location-prefix: classpath:/process/
+
+logging:
+  level:
+    org.activiti.engine.impl.db: debug
