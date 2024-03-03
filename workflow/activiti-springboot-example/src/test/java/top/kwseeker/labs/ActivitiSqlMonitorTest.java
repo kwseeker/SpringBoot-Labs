@@ -19,7 +19,7 @@ public class ActivitiSqlMonitorTest {
      */
     @Test
     public void testMonitorActivitiSqlOperation() {
-        String canalServerHost = "192.168.2.169";
+        String canalServerHost = "192.168.1.5";
         int canalServerPort = 11111;
         String destination = "apipe";
         //canal server 没有配置连接用户名密码
@@ -31,7 +31,8 @@ public class ActivitiSqlMonitorTest {
                 destination, username, password);
         try {
             connector.connect();
-            connector.subscribe(".*\\..*"); //订阅数据库表,全部表，这个会覆盖 instance.properties 中的定义
+            //connector.subscribe("ry-activiti\\..*,boot-activiti\\..*"); //这里的配置会覆盖 instance.properties 中的定义
+            connector.subscribe("boot-activiti\\..*");
             //回滚到未进行ack的地方，下次fetch的时候，可以从最后一个没有ack的地方开始拿
             connector.rollback();
             for (; ; ) {

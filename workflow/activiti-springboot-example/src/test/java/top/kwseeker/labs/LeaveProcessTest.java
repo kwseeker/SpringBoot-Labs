@@ -7,10 +7,11 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.activiti.bpmn.converter.BpmnXMLConverter;
 import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.editor.language.json.converter.BpmnJsonConverter;
-import org.activiti.engine.ActivitiException;
-import org.activiti.engine.ProcessEngine;
-import org.activiti.engine.RepositoryService;
+import org.activiti.engine.*;
+import org.activiti.engine.history.HistoricActivityInstance;
 import org.activiti.engine.repository.*;
+import org.activiti.engine.runtime.ProcessInstance;
+import org.activiti.engine.task.Task;
 import org.activiti.image.ProcessDiagramGenerator;
 import org.apache.batik.transcoder.image.PNGTranscoder;
 import org.apache.batik.transcoder.TranscoderInput;
@@ -26,9 +27,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @SpringBootTest
 public class LeaveProcessTest {
@@ -40,6 +39,12 @@ public class LeaveProcessTest {
     private ProcessEngine processEngine;
     @Resource
     private RepositoryService repositoryService;
+    @Resource
+    private RuntimeService runtimeService;
+    @Resource
+    private TaskService taskService;
+    @Resource
+    private HistoryService historyService;
     @Resource
     private ObjectMapper objectMapper;
     @Resource
@@ -163,10 +168,107 @@ public class LeaveProcessTest {
     }
 
     //6 启动流程实例
+    @Test
+    public void testStartProcessInstance() {
+        //首先是获取当前用户身份, 通过用户管理或安全模块获取用户ID等
+        String me = "admin";
 
+        String key = "leave";
+        //businessKey: 是唯一标识一个ProcessInstance的字符串，这里演示随便使用UUID实现
+        String businessKey = UUID.randomUUID().toString();
+        //流程实例启动业务传参，实际可能有很多参数，比如首先需要提交给部门领导审批，所以创建实例前需要查询申请人所属部门以及部门领导
+        Map<String, Object> variables = new HashMap<>();
+        variables.put("applyuserid", me);  //请假申请人
+        variables.put("deptleader", me);   //指定请假审批人，为方便测试这里设置为同一人
+        //启动流程实例
+        System.out.printf("启动一个请假审批流程：key=%s, businessKey=%s\n", key, businessKey);
+        runtimeService.startProcessInstanceByKey(key, businessKey, variables);
 
-    //7 处理流程实例
+        //查看所有已经启动的流程实例
+        List<ProcessInstance> activeProcessInstances = runtimeService.createProcessInstanceQuery()
+                .active()
+                .list();
+    }
 
+    //7 模拟处理流程实例, 需要人工处理的是UserTask
+    //  部门审批（UserTask）
+    @Test
+    public void testDeptHandleProcessInstance() {
+        //首先是获取当前用户身份, 通过用户管理或安全模块获取
+        String me = "admin";
+
+        System.out.printf("部门领导审批：deptleader=%s\n", me);
+        //查询自己(假设是"admin")待审批的流程用户任务, 也可能查询自己所属组待审批的用户任务（暂略）
+        //然后返回到前端页面展示
+        List<Task> tasks = taskService.createTaskQuery()
+                //.taskAssignee(me)
+                .taskCandidateOrAssigned(me, Collections.emptyList())
+                //可能有时需要有限查某个紧急任务，可以多加些过滤条件
+                //.taskName("")
+                //.processDefinitionName("")
+                .list();
+
+        Task task = tasks.get(0);
+        //审批，通常是在额外的页面和请求中进行
+        Map<String, Object> variables = new HashMap<>();
+        variables.put("deptleaderapprove", "true"); //部门领导审批通过
+        variables.put("comment", "同意请假");   //部门领导审批意见
+        variables.put("hr", "admin");          //二级审批人（HR审批）
+        taskService.complete(task.getId(), variables);
+    }
+
+    //  HR审批（UserTask）
+    @Test
+    public void testHrHandleProcessInstance() {
+        //模拟HR审批
+        String me = "admin";
+
+        System.out.printf("HR审批：hr=%s\n", me);
+        List<Task> tasks = taskService.createTaskQuery()
+                .taskCandidateOrAssigned(me, Collections.emptyList())
+                .list();
+
+        Task task = tasks.get(0);
+        //还可以查看下审批办理时间轴
+        String processInstanceId = taskService.createTaskQuery()
+                .taskId(task.getId()).singleResult().getProcessInstanceId();
+        List<HistoricActivityInstance> history = historyService.createHistoricActivityInstanceQuery()
+                .processInstanceId(processInstanceId)
+                .activityType("userTask")
+                .orderByHistoricActivityInstanceStartTime()
+                .asc()
+                .list();
+
+        //HR审批
+        Map<String, Object> variables = new HashMap<>();
+        variables.put("hrapprove", "true");
+        variables.put("comment", "同意请假2");
+        taskService.complete(task.getId(), variables);
+    }
+
+    //  申请人销假（UserTask）
+    @Test
+    public void testApplierHandleProcessInstance() {
+        String me = "admin";
+
+        System.out.printf("申请人销假：hr=%s\n", me);
+        List<Task> tasks = taskService.createTaskQuery()
+                .taskCandidateOrAssigned(me, Collections.emptyList())
+                .list();
+        Task task = tasks.get(0);
+
+        //审批办理时间轴
+        String processInstanceId = taskService.createTaskQuery()
+                .taskId(task.getId()).singleResult().getProcessInstanceId();
+        List<HistoricActivityInstance> history = historyService.createHistoricActivityInstanceQuery()
+                .processInstanceId(processInstanceId)
+                .activityType("userTask")
+                .orderByHistoricActivityInstanceStartTime()
+                .asc()
+                .list();
+
+        taskService.complete(task.getId());
+    }
 
     /**
      * 保存在 ACT_RE_MODEL 表, Model还有其他一些属性。
