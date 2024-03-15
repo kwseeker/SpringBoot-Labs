@@ -2,11 +2,13 @@ package top.kwseeker.labs.casbin.example01;
 
 import org.casbin.annotation.CasbinDataSource;
 import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
+@EnableCaching
 @Configuration
 public class CasbinConfiguration {
 

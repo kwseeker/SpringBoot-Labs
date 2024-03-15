@@ -1,6 +1,3 @@
-server:
-  port: 8081
-
 casbin:
   # 是否启用 Casbin，默认为启用。
   enableCasbin: true
@@ -27,10 +24,11 @@ casbin:
   #policy: classpath:casbin/policy.csv
   # 是否启用 CasbinWatcher 机制，默认不启用。
   # 如果启用该机制，casbin.storeType 必须为 jdbc，否则配置无效。
-  enableWatcher: false
+  enableWatcher: true
   # CasbinWatcher 通知模式，默认使用 Redis 进行通知同步，暂时仅支持 Redis。
   # 在启用 Watcher 后，需要手动添加 spring-boot-starter-data-redis 依赖。
-  #watcherType: redis
+  watcherType: redis
+  policyTopic: CASBIN_POLICY_TOPIC
   exception:
     # 当删除策略失败时抛出异常, 默认false
     removePolicyFailed: false
@@ -42,3 +40,22 @@ casbin:
 #    url: jdbc:mysql://192.168.124.8:3306/casbin?characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai&useSSL=false
 #    username: root
 #    password: 123456
+
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    #password:
+    database: 0
+    timeout: 6000
+    lettuce:
+      pool:
+        enabled: true
+        max-idle: 10
+        max-wait: 3000
+        min-idle: 0
+        max-active: 8
+        time-between-eviction-runs: 2000
+
+  profiles:
+    active: dev1
