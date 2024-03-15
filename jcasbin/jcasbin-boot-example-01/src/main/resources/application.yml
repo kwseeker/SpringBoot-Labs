@@ -1,0 +1,44 @@
+server:
+  port: 8081
+
+casbin:
+  # 是否启用 Casbin，默认为启用。
+  enableCasbin: true
+  # 是否使用同步 Enforcer，默认为 false。
+  useSyncedEnforcer: false
+  # 是否启用自动策略保存，如果适配器支持此功能，则默认启用。
+  autoSave: true
+  # 存储类型 [file, jdbc]，目前支持的 jdbc 数据库有 [mysql (mariadb), h2, oracle, postgresql, db2]。
+  # 欢迎编写并提交您正在使用的 jdbc 适配器，参见：org.casbin.adapter.OracleAdapter
+  # jdbc 适配器将主动查找您在 spring.datasource 中配置的数据源信息。
+  # 默认使用 jdbc，并使用内置的 h2 数据库进行内存存储。
+  storeType: jdbc
+  # 当使用 jdbc 时自定义策略表名称，默认为 casbin_rule。
+  tableName: casbin_rule
+  # 数据源初始化策略 [create (自动创建数据表，如果已创建则不再初始化), never (始终不初始化)]
+  initializeSchema: create
+  # 本地模型配置文件地址，默认读取位置：classpath: casbin/model.conf
+  model: classpath:casbin/rbac_model.conf
+  # 如果在默认位置未找到模型配置文件并且 casbin.model 设置不正确，则使用内置的默认 rbac 模型，默认生效。
+  useDefaultModelIfModelNotSetting: true
+  # 本地策略配置文件地址，默认读取位置：classpath: casbin/policy.csv
+  # 如果在默认位置未找到配置文件，则抛出异常。
+  # 此配置项仅在 casbin.storeType 设置为 file 时生效。
+  #policy: classpath:casbin/policy.csv
+  # 是否启用 CasbinWatcher 机制，默认不启用。
+  # 如果启用该机制，casbin.storeType 必须为 jdbc，否则配置无效。
+  enableWatcher: false
+  # CasbinWatcher 通知模式，默认使用 Redis 进行通知同步，暂时仅支持 Redis。
+  # 在启用 Watcher 后，需要手动添加 spring-boot-starter-data-redis 依赖。
+  #watcherType: redis
+  exception:
+    # 当删除策略失败时抛出异常, 默认false
+    removePolicyFailed: false
+
+#Casbin 数据源暂时必须通过 @CasbinDataSource 配置
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://192.168.124.8:3306/casbin?characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai&useSSL=false
+#    username: root
+#    password: 123456
