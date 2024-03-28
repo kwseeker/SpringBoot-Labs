@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: feign-server
+
+  cloud:
+    # 命名服务 & 配置服务
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:localhost:8848}
+      discovery:
+        namespace: ${NAMESPACE:dev}
+        group: SpringBoot-Labs
