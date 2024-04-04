@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>lab-46</module>
+        <module>labx-04-spring-cloud-alibaba-sentinel</module>
+        <module>spring-cloud-sentinel-example</module>
     </modules>
 
     <properties>

@@ -8,6 +8,7 @@ public class Application {
 
     public static void main(String[] args) {
         // 设置系统属性 project.name，提供给 Sentinel 读取
+        System.setProperty("csp.sentinel.dashboard.server", "172.17.0.3:8080");
         System.setProperty("project.name", "demo-application");
 
         // 启动 Spring Boot 应用
