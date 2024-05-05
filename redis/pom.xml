@@ -14,10 +14,13 @@
 
     <modules>
         <module>spring-boot-lettuce</module>
+        <module>redisson</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <spring-boot.version>2.7.12</spring-boot.version>
     </properties>
 

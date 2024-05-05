@@ -13,6 +13,7 @@
         <module>feign</module>
         <module>jcasbin</module>
         <module>loadbalancer-ribbon</module>
+        <module>mybatis</module>
         <module>nacos</module>
         <module>proxy</module>
         <module>rocketmq</module>
