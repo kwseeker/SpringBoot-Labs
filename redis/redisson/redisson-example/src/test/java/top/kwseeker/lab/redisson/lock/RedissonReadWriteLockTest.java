@@ -653,6 +653,52 @@ public class RedissonReadWriteLockTest extends BaseConcurrentTest {
         lock.unlock();
     }
 
+    private boolean state = false;
+
+    @Test
+    public void testRWLockUnlock() throws InterruptedException {
+        RReadWriteLock rwLock = redisson.getReadWriteLock("lock-rw");
+        Thread thread1 = new Thread(() -> {
+            RLock rLock = rwLock.readLock(); //RedissonReadLock
+            for (int i = 0; i < 100; i++) {
+                try {
+                    rLock.lock();
+                    System.out.println("thread1 state: " + state);
+                    Thread.yield();
+                } finally {
+                    rLock.unlock();
+                }
+            }
+        });
+
+        Thread thread2 = new Thread(() -> {
+            RLock rLock = rwLock.readLock(); //RedissonReadLock
+            RLock wLock = rwLock.writeLock(); //RedissonWriteLock
+            //先读后写
+            try {
+                rLock.lock();
+                System.out.println("thread2 state: " + state);
+                Thread.yield();
+            } finally {
+                rLock.unlock();
+            }
+
+            try {
+                wLock.lock();
+                state = true;
+                System.out.println("thread2 write state true");
+                Thread.yield();
+            } finally {
+                wLock.unlock();
+            }
+        });
+
+        thread1.start();
+        thread2.start();
+        thread1.join();
+        thread2.join();
+    }
+
     @Test
     public void testReentrancy() throws InterruptedException {
         RReadWriteLock rwlock = redisson.getReadWriteLock("lock");

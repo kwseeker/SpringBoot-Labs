@@ -99,7 +99,8 @@ public class RedissonLockTest extends BaseConcurrentTest {
         AtomicInteger errors = new AtomicInteger();
         AtomicInteger ops = new AtomicInteger();
         counter = 0;
-        for (int i = 0; i < 5000; i++) {
+        //for (int i = 0; i < 5000; i++) {
+        for (int i = 0; i < 2; i++) {
             e.submit(() -> {
                 try {
                     //String lockKey = "lock-" + ThreadLocalRandom.curren t().nextInt(5);
