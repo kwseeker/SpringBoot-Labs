@@ -9,25 +9,26 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>elasticsearch</module>
-        <module>feign</module>
-        <module>jcasbin</module>
-        <module>loadbalancer-ribbon</module>
-        <module>mybatis</module>
-        <module>nacos</module>
-        <module>proxy</module>
-        <module>rocketmq</module>
-        <module>sentinel</module>
-        <module>sharding-sphere</module>
-        <module>shiro</module>
-        <module>skywalking</module>
-        <module>spring-basic</module>
-        <module>spring-cloud-gateway</module>
-        <module>spring-expression</module>
-        <module>spring-security</module>
-        <module>webflux</module>
-        <module>workflow</module>
-        <module>redis</module>
+        <!--<module>elasticsearch</module>-->
+        <!--<module>feign</module>-->
+        <module>grpc</module>
+        <!--<module>jcasbin</module>-->
+        <!--<module>loadbalancer-ribbon</module>-->
+        <!--<module>mybatis</module>-->
+        <!--<module>nacos</module>-->
+        <!--<module>proxy</module>-->
+        <!--<module>rocketmq</module>-->
+        <!--<module>sentinel</module>-->
+        <!--<module>sharding-sphere</module>-->
+        <!--<module>shiro</module>-->
+        <!--<module>skywalking</module>-->
+        <!--<module>spring-basic</module>-->
+        <!--<module>spring-cloud-gateway</module>-->
+        <!--<module>spring-expression</module>-->
+        <!--<module>spring-security</module>-->
+        <!--<module>webflux</module>-->
+        <!--<module>workflow</module>-->
+        <!--<module>redis</module>-->
         <!-- Spring Boot 示例 -->
         <!--        <module>lab-01-spring-security</module>-->
         <!--        <module>lab-02-spring-security-oauth</module>-->
