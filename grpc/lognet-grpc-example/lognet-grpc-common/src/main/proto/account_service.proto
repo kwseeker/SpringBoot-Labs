@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "top.kwseeker.lab.grpc.lognet.common.consumer.service";
+option java_outer_classname = "AccountServiceProto";
+//option objc_class_prefix = "HLW"; //Objective-C 类前缀
+
+service AccountService {
+
+  rpc payment(AccountRequest) returns (AccountResponse);
+}
+
+message AccountRequest {
+  string userId = 1;
+  int32 amount = 2;
+}
+
+message AccountResponse {
+  bool result = 1;
+}
