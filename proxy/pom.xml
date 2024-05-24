@@ -9,9 +9,27 @@
     <groupId>top.kwseeker.market</groupId>
     <artifactId>proxy</artifactId>
     <packaging>pom</packaging>
-    <name>Archetype - proxy</name>
-    <url>http://maven.apache.org</url>
+    <name>proxy</name>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <modules>
+        <module>dynamic-proxy</module>
         <module>javasist</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>5.10.2</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

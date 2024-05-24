@@ -16,7 +16,7 @@
         <!--<module>loadbalancer-ribbon</module>-->
         <!--<module>mybatis</module>-->
         <!--<module>nacos</module>-->
-        <!--<module>proxy</module>-->
+        <module>proxy</module>
         <!--<module>rocketmq</module>-->
         <!--<module>sentinel</module>-->
         <!--<module>sharding-sphere</module>-->
