@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: prometheus-01
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        #include: '*'
+        include: [ "prometheus" ]
+  endpoint:
+    health:
+      show-details: always # 显示详细的健康检查信息
+  metrics:
+    export:
+      prometheus:
+        enabled: true # Prometheus 可以通过按照 metrics 属性抓取应用的运行指标数据
+  prometheus:
+    enabled: true # 启用 Prometheus 端点
