@@ -7,11 +7,18 @@
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>debug</level>
         </filter>
+        <!-- 如果外边要包一层 encoder 需要指定 LayoutWrappingEncoder，至于为何需要看XML解析原理 -->
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="top.kwseeker.labs.logging.TraceIdPatternLogbackLayout">
+                <!-- 时间、线程、日志级别、LoggerClass名、MDC属性（ServiceId）、Skywalking TraceId、消息主体、换行 -->
+                <pattern>%d{yy-MM-dd.HH:mm:ss.SSS} [%-16t] %-5p %-22c{0} %X{ServiceId}-%tid: %m%n</pattern>
+            </layout>
+        </encoder>
         <!-- layout 标签外层为何不需要包装一层 encoder 标签 -->
-        <layout class="top.kwseeker.labs.logging.TraceIdPatternLogbackLayout">
-            <!-- 时间、线程、日志级别、LoggerClass名、MDC属性（ServiceId）、Skywalking TraceId、消息主体、换行 -->
-            <pattern>%d{yy-MM-dd.HH:mm:ss.SSS} [%-16t] %-5p %-22c{0} %X{ServiceId}-%tid: %m%n</pattern>
-        </layout>
+        <!--<layout class="top.kwseeker.labs.logging.TraceIdPatternLogbackLayout">-->
+        <!--    &lt;!&ndash; 时间、线程、日志级别、LoggerClass名、MDC属性（ServiceId）、Skywalking TraceId、消息主体、换行 &ndash;&gt;-->
+        <!--    <pattern>%d{yy-MM-dd.HH:mm:ss.SSS} [%-16t] %-5p %-22c{0} %X{ServiceId}-%tid: %m%n</pattern>-->
+        <!--</layout>-->
     </appender>
 
     <root level="info">
