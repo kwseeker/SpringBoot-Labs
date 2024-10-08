@@ -207,7 +207,9 @@ public class MetricTypeTest {
         } else {
             throw new IllegalArgumentException("Unsupported format writer type: " + type);
         }
-        ByteArrayOutputStream baos = new ByteArrayOutputStream(1024);
+        //ByteArrayOutputStream baos = new ByteArrayOutputStream(1024);
+        //当要写入数据大于初始分配的缓冲大小时会自动扩容
+        ByteArrayOutputStream baos = new ByteArrayOutputStream(16);
         writer.write(baos, new MetricSnapshots(snapshots));
         // 将 baos 内容写到 标准输出
         baos.writeTo(System.out);

@@ -3,16 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.12</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>cn.iocoder.springboot.labs</groupId>
+        <artifactId>prometheus</artifactId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>cn.iocoder.springboot.labs</groupId>
     <artifactId>spring-boot-prometheus-01</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-prometheus-01</name>
-    <description>spring-boot-prometheus-01</description>
 
     <properties>
         <java.version>8</java.version>
@@ -22,13 +19,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -39,6 +34,18 @@
             <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.7.12</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>

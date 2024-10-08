@@ -12,6 +12,7 @@
     <name>prometheus</name>
     <modules>
         <module>prometheus-client-01</module>
+        <module>spring-boot-prometheus-01</module>
     </modules>
 
     <properties>
