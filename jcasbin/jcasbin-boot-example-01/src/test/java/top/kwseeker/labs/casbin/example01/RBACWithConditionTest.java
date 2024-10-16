@@ -64,7 +64,7 @@ public class RBACWithConditionTest {
         assertTrue(e.hasRoleForUser("alice", "data3_admin"));
         Thread.sleep(60*1000);  //等待一分钟等角色过期
         assertTrue(e.hasRoleForUser("alice", "data3_admin"));  //临时角色过期后不会自动删除
-        assertFalse(e.enforce("alice", "data3", "read"));           //临时角色无效
-        assertTrue(e.hasRoleForUser("alice", "data3_admin"));  //临时角色无效但还是不会删除, hasRoleForUser这方法不靠谱啊
+        assertFalse(e.enforce("alice", "data3", "read"));           //临时角色条件无效
+        assertTrue(e.hasRoleForUser("alice", "data3_admin"));  //临时角色条件无效但还是不会删除
     }
 }
