@@ -9,16 +9,20 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>disruptor</module>
         <!--<module>elasticsearch</module>-->
         <!--<module>feign</module>-->
         <module>grpc</module>
-        <!--<module>jcasbin</module>-->
+        <module>jcasbin</module>
         <!--<module>loadbalancer-ribbon</module>-->
         <!--<module>mybatis</module>-->
-        <!--<module>nacos</module>-->
+        <module>nacos</module>
         <module>proxy</module>
-        <!--<module>rocketmq</module>-->
-        <!--<module>sentinel</module>-->
+        <module>rocketmq</module>
+        <module>prometheus</module>
+        <module>micrometer</module>
+        <module>logging</module>
+        <module>sentinel</module>
         <!--<module>sharding-sphere</module>-->
         <!--<module>shiro</module>-->
         <!--<module>skywalking</module>-->
@@ -26,6 +30,7 @@
         <!--<module>spring-cloud-gateway</module>-->
         <!--<module>spring-expression</module>-->
         <!--<module>spring-security</module>-->
+        <module>spring-transaction</module>
         <!--<module>webflux</module>-->
         <!--<module>workflow</module>-->
         <!--<module>redis</module>-->

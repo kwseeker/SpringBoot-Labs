@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.kwseeker.labs.spring.transaction.dao.ITransferRecordDao">
+
+    <resultMap id="dataMap" type="top.kwseeker.labs.spring.transaction.entity.TransferRecord">
+        <id column="id" property="id"/>
+        <result column="from_user_id" property="fromUserId"/>
+        <result column="to_user_id" property="toUserId"/>
+        <result column="amount" property="amount"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <insert id="record">
+        insert into transfer_record(from_user_id, to_user_id, amount, create_time, update_time)
+        values (#{fromUserId}, #{toUserId}, #{amount}, now(), now())
+    </insert>
+</mapper>

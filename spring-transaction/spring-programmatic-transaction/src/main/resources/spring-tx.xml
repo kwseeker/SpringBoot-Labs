@@ -1,0 +1,35 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">-->
+
+<!--    <context:annotation-config/>-->
+<!--    <context:component-scan base-package="top.kwseeker.labs.spring.transaction"/>-->
+
+<!--    &lt;!&ndash;开启事务注解支持&ndash;&gt;-->
+<!--    <tx:annotation-driven transaction-manager="txManager"/>-->
+
+<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+<!--        <constructor-arg name="url" value="jdbc:mysql://localhost/spring-tx?useSSL=false"/>-->
+<!--        <constructor-arg name="username" value="root"/>-->
+<!--        <constructor-arg name="password" value="123456"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+<!--        <property name="dataSource" ref="dataSource"/>-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash;XML事务规则配置，这个可以使用 @Transactional 注解替代&ndash;&gt;-->
+<!--    &lt;!&ndash;<tx:advice id="advice" transaction-manager="txManager">&ndash;&gt;-->
+<!--    &lt;!&ndash;    <tx:attributes>&ndash;&gt;-->
+<!--    &lt;!&ndash;        &lt;!&ndash;配置针对哪些方法进行拓展增强，以及事务传播和处理规则&ndash;&gt;&ndash;&gt;-->
+<!--    &lt;!&ndash;        <tx:method name="update*" propagation="REQUIRED" read-only="false" rollback-for="java.lang.Exception"/>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <tx:method name="add*" propagation="REQUIRED" read-only="false"/>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </tx:attributes>&ndash;&gt;-->
+<!--    &lt;!&ndash;</tx:advice>&ndash;&gt;-->
+
+<!--    <bean class="org.springframework.jdbc.core.JdbcTemplate">-->
+<!--        <property name="dataSource" ref="dataSource"/>-->
+<!--    </bean>-->
+<!--</beans>-->
