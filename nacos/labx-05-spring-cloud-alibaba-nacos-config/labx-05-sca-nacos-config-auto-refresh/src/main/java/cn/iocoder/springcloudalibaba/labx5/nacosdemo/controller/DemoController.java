@@ -1,5 +1,6 @@
 package cn.iocoder.springcloudalibaba.labx5.nacosdemo.controller;
 
+import cn.iocoder.springcloudalibaba.labx5.nacosdemo.config.ActivitySettingProperties;
 import cn.iocoder.springcloudalibaba.labx5.nacosdemo.config.OrderProperties;
 import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
@@ -20,6 +21,8 @@ public class DemoController {
 
     @Autowired
     private OrderProperties orderProperties;
+    @Autowired
+    private ActivitySettingProperties activitySettingProperties;
 
     /**
      * 测试 @ConfigurationProperties 注解的配置属性类
@@ -27,6 +30,11 @@ public class DemoController {
     @GetMapping("/test01")
     public OrderProperties test01() {
         return orderProperties;
+    }
+
+    @GetMapping("/test03")
+    public ActivitySettingProperties test03() {
+        return activitySettingProperties;
     }
 
     @Value(value = "${order.pay-timeout-seconds}")

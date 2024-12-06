@@ -1,4 +1,4 @@
 spring:
   profiles:
-#    active: standalone
-    active: cluster
+    active: standalone
+#    active: cluster
