@@ -15,13 +15,17 @@
         <module>grpc</module>
         <module>jcasbin</module>
         <!--<module>loadbalancer-ribbon</module>-->
-        <!--<module>mybatis</module>-->
-        <module>nacos</module>
-        <module>proxy</module>
-        <module>rocketmq</module>
-        <module>prometheus</module>
-        <module>micrometer</module>
         <module>logging</module>
+        <module>micrometer</module>
+        <module>mybatis</module>
+        <module>nacos</module>
+        <module>netty</module>
+        <module>online-question-mock</module>
+        <module>prometheus</module>
+        <module>proxy</module>
+        <module>redis</module>
+        <module>rocketmq</module>
+        <module>scheduled-task</module>
         <module>sentinel</module>
         <!--<module>sharding-sphere</module>-->
         <!--<module>shiro</module>-->
@@ -31,9 +35,10 @@
         <!--<module>spring-expression</module>-->
         <!--<module>spring-security</module>-->
         <module>spring-transaction</module>
+        <module>unit-test</module>
+        <module>seata</module>
         <!--<module>webflux</module>-->
         <!--<module>workflow</module>-->
-        <!--<module>redis</module>-->
         <!-- Spring Boot 示例 -->
         <!--        <module>lab-01-spring-security</module>-->
         <!--        <module>lab-02-spring-security-oauth</module>-->

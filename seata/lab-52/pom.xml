@@ -9,12 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>labx-17-sc-seata-at-feign-demo</artifactId>
+    <groupId>top.kwseeker.springboot.labs</groupId>
+    <artifactId>lab-52</artifactId>
+    <packaging>pom</packaging>
 
     <modules>
-        <module>labx-17-sc-seata-at-feign-demo-account-service</module>
-        <module>labx-17-sc-seata-at-feign-demo-product-service</module>
-        <module>labx-17-sc-seata-at-feign-demo-order-service</module>
+        <module>lab-52-multiple-datasource</module>
+        <module>lab-52-seata-at-httpclient-demo</module>
     </modules>
 
 </project>
