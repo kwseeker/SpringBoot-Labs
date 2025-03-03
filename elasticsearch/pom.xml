@@ -13,10 +13,11 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>lab-15-spring-data-es</module>
-    <module>spring-data-elasticsearch-8.x</module>
     <module>canal-rocketmq-es-search</module>
     <module>code-repo-search</module>
     <module>elasticsearch-rest-high-level-client-7.x</module>
+    <module>file-repo-search</module>
+    <module>lab-15-spring-data-es</module>
+    <module>spring-data-elasticsearch-8.x</module>
   </modules>
 </project>
